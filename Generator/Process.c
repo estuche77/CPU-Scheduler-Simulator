@@ -34,7 +34,7 @@ char *toString(Process *process) {
 
 char *intToString(int value)
 {
-    char str[10];
+    char str[10] = {10};
     sprintf(str, "%d", value);
     char *strValor = str;
 

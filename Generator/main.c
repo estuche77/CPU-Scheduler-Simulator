@@ -4,10 +4,10 @@
 
 int main() {
 
-    Process *p = newProcess(10, 20);
+    Process *p = newProcess(20, 12);
 
     char *str = toString(p);
 
-    printf(str);
+    printf("%s", str);
     return 0;
 }
