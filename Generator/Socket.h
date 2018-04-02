@@ -16,7 +16,7 @@ Socket *newSocket(int socketID, char *message);
 int configureSocket(const char*, unsigned short);
 
 // Starts a new thread to send the message
-void startCommunication(int, const char*);
+void startCommunication(int, char*);
 
 // Function used for socket threading communication
 void *runCommunication(void*);

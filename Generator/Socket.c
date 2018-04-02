@@ -24,6 +24,8 @@ Socket *newSocket(int socketID, char *message) {
 int configureSocket(const char *serverAddress, unsigned short port) {
 
     int sock = 0;
+    char zero = '0';
+
     struct sockaddr_in server_addr;
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
@@ -31,7 +33,7 @@ int configureSocket(const char *serverAddress, unsigned short port) {
         return -1;
     }
 
-    memset(&server_addr, '0', sizeof(server_addr));
+    memset(&server_addr, zero, sizeof(server_addr));
 
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(port);
@@ -52,7 +54,7 @@ int configureSocket(const char *serverAddress, unsigned short port) {
     return sock;
 }
 
-void startCommunication(const int socketDescriptor, const char *msg) {
+void startCommunication(const int socketDescriptor, char *msg) {
 
     pthread_t pthread;
     Socket *socket = newSocket(socketDescriptor, msg);
