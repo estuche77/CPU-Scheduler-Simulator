@@ -8,9 +8,20 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
 #include "Socket.h"
 
-int createConnection(const char *serverAddress, unsigned short port) {
+Socket *newSocket(int socketID, char *message) {
+    Socket *s = malloc(sizeof(Socket));
+
+    s->socketID = socketID;
+    strcpy(s->message, message);
+
+    return s;
+}
+
+int configureSocket(const char *serverAddress, unsigned short port) {
 
     int sock = 0;
     struct sockaddr_in server_addr;
@@ -42,9 +53,29 @@ int createConnection(const char *serverAddress, unsigned short port) {
 }
 
 void startCommunication(const int socketDescriptor, const char *msg) {
+
+    pthread_t pthread;
+    Socket *socket = newSocket(socketDescriptor, msg);
+
+    int result = pthread_create(&pthread, NULL, runCommunication, (void *)socket);
+
+    if (result) {
+        printf("Thread creation failed with code %d\n", result);
+        return;
+    }
+}
+
+void *runCommunication(void* v) {
+    Socket *socket = (Socket *) v;
     char buffer[1024] = {0};
-    send(socketDescriptor, msg, strlen(msg), 0);
-    read(socketDescriptor, buffer, 1024);
+
+    printf("Sending process...\n");
+    send(socket->socketID, socket->message, strlen(socket->message), 0);
+
+    read(socket->socketID, buffer, 1024);
     printf("Assigned PID: ");
     printf("%s\n", buffer);
+
+    close(socket->socketID);
+    pthread_exit(NULL);
 }

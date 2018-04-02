@@ -5,7 +5,20 @@
 #ifndef GENERATOR_SOCKET_H
 #define GENERATOR_SOCKET_H
 
-int createConnection(const char*, unsigned short);
-void startCommunication(const int, const char*);
+typedef struct Socket {
+    int socketID;
+    char *message;
+} Socket;
+
+Socket *newSocket(int socketID, char *message);
+
+// Configure socket by HOSTNAME and PORT
+int configureSocket(const char*, unsigned short);
+
+// Starts a new thread to send the message
+void startCommunication(int, const char*);
+
+// Function used for socket threading communication
+void *runCommunication(void*);
 
 #endif //GENERATOR_SOCKET_H

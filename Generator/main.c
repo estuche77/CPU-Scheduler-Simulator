@@ -15,7 +15,7 @@ int main() {
 
     printf("%s\n", str);
 
-    int socket = createConnection(HOST, PORT);
+    int socket = configureSocket(HOST, PORT);
     startCommunication(socket, "HOLA!!");
 
     return 0;
