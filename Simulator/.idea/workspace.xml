@@ -12,10 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1f36c66-7f33-46c4-9c50-8f71af17fa81" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../Generator/Socket.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Generator/Socket.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Generator/Process.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/Process.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Generator/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Generator/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -103,7 +106,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Simulator">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Simulator" RUN_TARGET_NAME="Simulator" EXPLICIT_BUILD_TARGET_NAME="all" />
     <configuration name="Simulator" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Simulator" TARGET_NAME="Simulator" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Simulator" RUN_TARGET_NAME="Simulator" />
     <list>
       <item itemvalue="Application.Build All" />
@@ -120,12 +123,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522637164199</updated>
-      <workItem from="1522637166146" duration="2501000" />
+      <workItem from="1522637166146" duration="2963000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2501000" />
+    <option name="totallyTimeSpent" value="2963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1365" y="-4" width="1368" height="773" extended-state="6" />

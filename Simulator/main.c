@@ -2,6 +2,6 @@
 #include <limits.h>
 
 int main() {
-    printf("%d", sizeof(38));
+    printf("%d", INT_MAX);
     return 0;
 }

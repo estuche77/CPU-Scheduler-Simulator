@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include "Process.h"
+#include "Socket.h"
+
+#define PORT 8080
+#define HOST "127.0.0.1"
 
 int main() {
 
@@ -8,6 +13,10 @@ int main() {
 
     char *str = toString(p);
 
-    printf("%s", str);
+    printf("%s\n", str);
+
+    int socket = createConnection(HOST, PORT);
+    startCommunication(socket, "HOLA!!");
+
     return 0;
 }
