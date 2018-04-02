@@ -4,4 +4,4 @@ project(Simulator C)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_FLAGS "-pthread")
 
-add_executable(Simulator main.c)
+add_executable(Simulator main.c PBC.c PBC.h)

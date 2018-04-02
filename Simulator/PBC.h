@@ -2,10 +2,8 @@
 // Created by estuche on 02/04/18.
 //
 
-#ifndef GENERATOR_PBC_H
-#define GENERATOR_PBC_H
-
-enum pState{Ready, Active, Ended};
+#ifndef SIMULATOR_PBC_H
+#define SIMULATOR_PBC_H
 
 typedef struct PCB {
     int pid;
@@ -16,4 +14,4 @@ typedef struct PCB {
     int wt;
 };
 
-#endif //GENERATOR_PBC_H
+#endif //SIMULATOR_PBC_H
