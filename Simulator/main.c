@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <limits.h>
 
 int main() {
-    printf("Hello, World!\n");
+    printf("%d", sizeof(38));
     return 0;
 }
