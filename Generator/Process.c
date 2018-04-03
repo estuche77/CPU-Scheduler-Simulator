@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "Process.h"
+#include "Utils.h"
 
 Process *newProcess(int burst, int priority) {
     Process *p = malloc(sizeof(Process));
@@ -23,20 +24,11 @@ char *toString(Process *process) {
     // maximum integer value are 10 digits each
     char *string = malloc(40);
 
-    strcat(string, "BURST: ");
+    strcat(string, "BURST:");
     strcat(string, intToString(process->burst));
-    strcat(string, " - ");
-    strcat(string, "PRIORITY: ");
+    strcat(string, "\n");
+    strcat(string, "PRIORITY:");
     strcat(string, intToString(process->priority));
 
     return string;
-}
-
-char *intToString(int value)
-{
-    char str[10] = {10};
-    sprintf(str, "%d", value);
-    char *strValor = str;
-
-    return strValor;
 }

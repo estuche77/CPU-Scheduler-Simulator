@@ -12,6 +12,5 @@ typedef struct Process {
 
 Process *newProcess(int, int);
 char *toString(Process*);
-char *intToString(int);
 
 #endif //GENERATOR_PROCESS_H
