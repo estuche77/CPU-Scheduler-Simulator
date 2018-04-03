@@ -12,6 +12,7 @@ enum pState {READY, ACTIVE, ENDED};
 typedef struct PCB {
     int pid;
     int burst;
+    int burstLeft;
     int priority;
     enum pState state;
     int tat;

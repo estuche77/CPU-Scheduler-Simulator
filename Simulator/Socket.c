@@ -18,6 +18,8 @@ int configureSocket(unsigned short port) {
     int opt = 1;
 
     struct sockaddr_in server_addr;
+
+    // Obtain a socket descriptor by setting up the connection
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
         printf("Socket creation error\n");
@@ -45,6 +47,7 @@ int configureSocket(unsigned short port) {
     pthread_t listeningThread;
     int result;
 
+    // Thread used for listen incoming connections
     result = pthread_create(&listeningThread, NULL, startListening, (void *)&sock);
 
     if (result) {
@@ -52,6 +55,7 @@ int configureSocket(unsigned short port) {
         exit(-1);
     }
 
+    // THIS LINE SHOULD BE ERASED LATER!!! Escuchó Jake???
     pthread_join(listeningThread, NULL);
 
 }

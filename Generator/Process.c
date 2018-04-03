@@ -21,7 +21,7 @@ Process *newProcess(int burst, int priority) {
 char *toString(Process *process) {
     // String initialized in 37 bytes since
     // "BURST:" & "PRIORITY:" are 15 bytes
-    // plus new line plus maximum integer
+    // plus 1 new line plus the maximum integer
     // value are 10 digits each
     char *string = malloc(37);
 

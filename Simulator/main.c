@@ -8,6 +8,7 @@
 
 int main() {
 
+    // Queue list where process will be stored
     Queue *queue = newQueue();
 
     addToQueue(queue, 10, 20);
@@ -16,6 +17,7 @@ int main() {
     addToQueue(queue, 10, 20);
     addToQueue(queue, 10, 20);
 
+    // Test print function
     printQueue(queue);
 
     configureSocket(PORT);
