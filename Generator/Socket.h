@@ -10,10 +10,11 @@ typedef struct Socket {
     char *message;
 } Socket;
 
+// Constructor
 Socket *newSocket(int socketID, const char *message);
 
-// Configure socket by HOSTNAME and PORT
-int configureSocket(const char*, unsigned short);
+// Configure socket by HOSTNAME and PORT and returns a connected socket
+int connectSocket(const char *, unsigned short);
 
 // Starts a new thread to send the message
 void startCommunication(int, const char*);

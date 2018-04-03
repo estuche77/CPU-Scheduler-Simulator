@@ -26,7 +26,7 @@ int main() {
         char *str = toString(process);
 
         // Connection and communication
-        int socket = configureSocket(HOST, PORT);
+        int socket = connectSocket(HOST, PORT);
         startCommunication(socket, str);
 
     }

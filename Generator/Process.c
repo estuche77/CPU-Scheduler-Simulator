@@ -19,10 +19,11 @@ Process *newProcess(int burst, int priority) {
 }
 
 char *toString(Process *process) {
-    // String initialized in 38 bytes since
-    // "BURST: " & "PRIORITY: " are 18 bytes plus
-    // maximum integer value are 10 digits each
-    char *string = malloc(40);
+    // String initialized in 37 bytes since
+    // "BURST:" & "PRIORITY:" are 15 bytes
+    // plus new line plus maximum integer
+    // value are 10 digits each
+    char *string = malloc(37);
 
     strcat(string, "BURST:");
     strcat(string, intToString(process->burst));
