@@ -12,10 +12,11 @@
 #include <pthread.h>
 #include "Socket.h"
 
-Socket *newSocket(int socketID, char *message) {
+Socket *newSocket(int socketID, const char *message) {
     Socket *s = malloc(sizeof(Socket));
 
     s->socketID = socketID;
+    s->message = malloc(40);
     strcpy(s->message, message);
 
     return s;
@@ -54,7 +55,7 @@ int configureSocket(const char *serverAddress, unsigned short port) {
     return sock;
 }
 
-void startCommunication(const int socketDescriptor, char *msg) {
+void startCommunication(const int socketDescriptor, const char *msg) {
 
     pthread_t pthread;
     Socket *socket = newSocket(socketDescriptor, msg);
@@ -65,6 +66,8 @@ void startCommunication(const int socketDescriptor, char *msg) {
         printf("Thread creation failed with code %d\n", result);
         return;
     }
+
+    pthread_join(pthread, NULL);
 }
 
 void *runCommunication(void* v) {

@@ -10,13 +10,13 @@ typedef struct Socket {
     char *message;
 } Socket;
 
-Socket *newSocket(int socketID, char *message);
+Socket *newSocket(int socketID, const char *message);
 
 // Configure socket by HOSTNAME and PORT
 int configureSocket(const char*, unsigned short);
 
 // Starts a new thread to send the message
-void startCommunication(int, char*);
+void startCommunication(int, const char*);
 
 // Function used for socket threading communication
 void *runCommunication(void*);

@@ -21,11 +21,11 @@ char *toString(Process *process) {
     // String initialized in 38 bytes since
     // "BURST: " & "PRIORITY: " are 18 bytes plus
     // maximum integer value are 10 digits each
-    char *string = malloc(38);
+    char *string = malloc(40);
 
     strcat(string, "BURST: ");
     strcat(string, intToString(process->burst));
-    strcat(string, "\n");
+    strcat(string, " - ");
     strcat(string, "PRIORITY: ");
     strcat(string, intToString(process->priority));
 
