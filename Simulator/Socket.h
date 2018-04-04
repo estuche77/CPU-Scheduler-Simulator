@@ -8,7 +8,7 @@
 #include "PQueue.h"
 
 typedef struct Socket {
-    int socket;
+    int socketID;
     Queue *queue;
 } Socket;
 

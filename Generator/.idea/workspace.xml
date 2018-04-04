@@ -12,18 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f2a4dd3-467b-454c-b0b8-4fbc73711220" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../Simulator/CPUScheduler.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Simulator/JobScheduler.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Simulator/JobScheduler.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Simulator/Utils.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Simulator/Utils.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Simulator/CpuScheduler.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Simulator/CpuScheduler.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/Utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulator/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Simulator/CPUScheduler.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Simulator/JobScheduler.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/JobScheduler.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulator/Socket.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/Socket.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulator/Socket.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/Socket.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulator/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/main.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Socket.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Socket.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Socket.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="18" column="23" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="23" />
+            <state relative-caret-position="273">
+              <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="94" selection-end-column="23" />
               <folding>
                 <element signature="e#42#65#0" expanded="true" />
               </folding>
@@ -75,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Utils.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Utils.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+            <state relative-caret-position="123">
+              <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
               <folding>
                 <element signature="e#42#61#0" expanded="true" />
               </folding>
@@ -130,10 +127,10 @@
         <option value="$PROJECT_DIR$/Process.h" />
         <option value="$PROJECT_DIR$/Utils.h" />
         <option value="$PROJECT_DIR$/Socket.h" />
-        <option value="$PROJECT_DIR$/Socket.c" />
         <option value="$PROJECT_DIR$/Process.c" />
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/Utils.c" />
+        <option value="$PROJECT_DIR$/Socket.c" />
       </list>
     </option>
   </component>
@@ -205,12 +202,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522637133968</updated>
-      <workItem from="1522637136292" duration="38044000" />
+      <workItem from="1522637136292" duration="38521000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38044000" />
+    <option name="totallyTimeSpent" value="38521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1365" y="-4" width="1368" height="773" extended-state="6" />
@@ -326,22 +323,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Socket.c">
+    <entry file="file://$PROJECT_DIR$/Utils.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="23" />
+        <state relative-caret-position="123">
+          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
           <folding>
-            <element signature="e#42#65#0" expanded="true" />
+            <element signature="e#42#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils.c">
+    <entry file="file://$PROJECT_DIR$/Socket.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        <state relative-caret-position="273">
+          <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="94" selection-end-column="23" />
           <folding>
-            <element signature="e#42#61#0" expanded="true" />
+            <element signature="e#42#65#0" expanded="true" />
           </folding>
         </state>
       </provider>

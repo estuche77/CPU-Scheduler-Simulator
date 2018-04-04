@@ -20,14 +20,14 @@ int configureSocket(unsigned short port) {
 
     struct sockaddr_in server_addr;
 
-    // Obtain a socket descriptor by setting up the connection
+    // Obtain a socketID descriptor by setting up the connection
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
         printf("Socket creation error\n");
         return -1;
     }
 
-    // Forcefully attaching socket to the port 8080
+    // Forcefully attaching socketID to the port 8080
     if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt)))
     {
         perror("Setsockopt failed");
@@ -38,7 +38,7 @@ int configureSocket(unsigned short port) {
     server_addr.sin_addr.s_addr = INADDR_ANY;
     server_addr.sin_port = htons(port);
 
-    // Forcefully attaching socket to the port 8080
+    // Forcefully attaching socketID to the port 8080
     if (bind(sock, (struct sockaddr *) &server_addr, sizeof(server_addr)) < 0)
     {
         perror("Bind failed");
@@ -54,20 +54,21 @@ void *startListening(void *v) {
     struct sockaddr server_address;
     int addressLength = sizeof(server_address);
 
+    // Forever
     while (1) {
-        if (listen(server_socket->socket, 3) < 0)
+        if (listen(server_socket->socketID, 3) < 0)
         {
             perror("listen");
             exit(EXIT_FAILURE);
         }
 
-        // New struct with socket id and process queue
+        // New struct with socketID id and process queue
         Socket *new_socket = malloc(sizeof(Socket));
-        new_socket->socket = 0;
+        new_socket->socketID = 0;
         new_socket->queue = server_socket->queue;
 
         // Keeps waiting for an incoming connection
-        if ((new_socket->socket = accept(server_socket->socket, &server_address, (socklen_t*)&addressLength)) < 0)
+        if ((new_socket->socketID = accept(server_socket->socketID, &server_address, (socklen_t*)&addressLength)) < 0)
         {
             perror("accept");
             exit(EXIT_FAILURE);
@@ -91,7 +92,7 @@ void *startCommunication(void *v) {
 
     // The data is fetched
     char buffer[40] = {0};
-    read(socket->socket, buffer, 40);
+    read(socket->socketID, buffer, 40);
     printf("%s\n", buffer);
 
     // Here the data should be analyzed and inserted
@@ -100,9 +101,11 @@ void *startCommunication(void *v) {
     // And pid is converted to string
     char *str_pid = intToString(pid);
 
-    printf("%d\n", pid);
-
     // After inserting the new process, the assigned pid is sent
-    send(socket->socket, str_pid, sizeof(str_pid), 0);
-    printf("Message sent\n");
+    send(socket->socketID, str_pid, sizeof(str_pid), 0);
+    printf("Assigned PID: %s\n", str_pid);
+
+    // Close the socketID and exits the thread
+    close(socket->socketID);
+    pthread_exit(NULL);
 }
