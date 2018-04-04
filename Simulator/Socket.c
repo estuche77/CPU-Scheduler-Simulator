@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include "Socket.h"
+#include "Utils.h"
 
 int configureSocket(unsigned short port) {
 
@@ -44,38 +45,29 @@ int configureSocket(unsigned short port) {
         exit(EXIT_FAILURE);
     }
 
-    pthread_t listeningThread;
-    int result;
-
-    // Thread used for listen incoming connections
-    result = pthread_create(&listeningThread, NULL, startListening, (void *)&sock);
-
-    if (result) {
-        printf("ERROR; return code from pthread_create() is %d\n", result);
-        exit(-1);
-    }
-
-    // THIS LINE SHOULD BE ERASED LATER!!! Escuchó Jake???
-    pthread_join(listeningThread, NULL);
-
+    return sock;
 }
 
 void *startListening(void *v) {
-    int *sockPtr = (int *)v;
-    int sock = *sockPtr;
+    Socket *server_socket = (Socket *)v;
 
-    struct sockaddr server_addr;
-    int addrLength = sizeof(server_addr);
-
-    int newSocket;
+    struct sockaddr server_address;
+    int addressLength = sizeof(server_address);
 
     while (1) {
-        if (listen(sock, 3) < 0)
+        if (listen(server_socket->socket, 3) < 0)
         {
             perror("listen");
             exit(EXIT_FAILURE);
         }
-        if ((newSocket = accept(sock, &server_addr, (socklen_t*)&addrLength)) < 0)
+
+        // New struct with socket id and process queue
+        Socket *new_socket = malloc(sizeof(Socket));
+        new_socket->socket = 0;
+        new_socket->queue = server_socket->queue;
+
+        // Keeps waiting for an incoming connection
+        if ((new_socket->socket = accept(server_socket->socket, &server_address, (socklen_t*)&addressLength)) < 0)
         {
             perror("accept");
             exit(EXIT_FAILURE);
@@ -84,7 +76,8 @@ void *startListening(void *v) {
         pthread_t communication;
         int result;
 
-        result = pthread_create(&communication, NULL, startCommunication, (void *)&newSocket);
+        // A communication thread is created
+        result = pthread_create(&communication, NULL, startCommunication, (void *)new_socket);
 
         if (result) {
             printf("ERROR; return code from pthread_create() is %d\n", result);
@@ -94,12 +87,22 @@ void *startListening(void *v) {
 }
 
 void *startCommunication(void *v) {
-    int *sockPtr = (int *)v;
-    int newSocket = *sockPtr;
+    Socket *socket = (Socket *)v;
 
+    // The data is fetched
     char buffer[40] = {0};
-    read(newSocket, buffer, 40);
+    read(socket->socket, buffer, 40);
     printf("%s\n", buffer);
-    send(newSocket, "1", sizeof(char), 0);
+
+    // Here the data should be analyzed and inserted
+    int pid = addToQueue(socket->queue, 10, 10);
+
+    // And pid is converted to string
+    char *str_pid = intToString(pid);
+
+    printf("%d\n", pid);
+
+    // After inserting the new process, the assigned pid is sent
+    send(socket->socket, str_pid, sizeof(str_pid), 0);
     printf("Message sent\n");
 }

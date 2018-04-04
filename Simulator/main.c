@@ -1,26 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "PBC.h"
-#include "PQueue.h"
-#include "Socket.h"
+#include "Simulation.h"
+#include "JobScheduler.h"
 
 #define PORT 8080
 
 int main() {
 
-    // Queue list where process will be stored
-    Queue *queue = newQueue();
+    Simulation *simulation = newSimulation(FIFO);
 
-    addToQueue(queue, 10, 20);
-    addToQueue(queue, 10, 20);
-    addToQueue(queue, 10, 20);
-    addToQueue(queue, 10, 20);
-    addToQueue(queue, 10, 20);
-
-    // Test print function
-    printQueue(queue);
-
-    configureSocket(PORT);
+    JobScheduling(simulation, PORT);
 
     return 0;
 }
