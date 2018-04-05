@@ -1,0 +1,8 @@
+//
+// Created by root on 04/04/18.
+//
+
+#ifndef SIMULATOR_CPUPLANNING_H
+#define SIMULATOR_CPUPLANNING_H
+
+#endif //SIMULATOR_CPUPLANNING_H
