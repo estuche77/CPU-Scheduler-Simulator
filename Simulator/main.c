@@ -8,7 +8,6 @@
 int main() {
 
     Simulation *simulation = newSimulation(FIFO);
-
     JobScheduling(simulation, PORT);
 
     return 0;

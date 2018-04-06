@@ -6,8 +6,10 @@
 #include "PQueue.h"
 #include "Simulation.h"
 #include <unistd.h>
+#include "PBC.h"
+#include "PQueue.h"
 
-void setPCB_Burst(Node* process, int value){
+void setPCB_Burst(Node *process, int value){
     process->pcb->burstLeft-=value;
     if(process->pcb->burstLeft <=0){
         process->pcb->burstLeft=0;
@@ -23,7 +25,7 @@ Node* getLowerPID(Node* current,Node* lower){
     }
     return lower;
 }
-struct Node* searchLowerPID(Queue *queue){
+Node* searchLowerPID(Queue *queue){
     Node *temp=queue->first;
     while(temp != NULL && !isProcessActived(temp->pcb)){
         temp=temp->next;

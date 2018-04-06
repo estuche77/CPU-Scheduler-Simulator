@@ -5,15 +5,14 @@
 #ifndef SIMULATOR_SIMULATION_H
 #define SIMULATOR_SIMULATION_H
 
-#include <pthread.h>
 #include "PQueue.h"
-
 enum pAlgorithm {FIFO, SJF, HPF, RR};
 
 typedef struct Simulation {
     Queue *processQueue;
     enum pAlgorithm algorithm;
     int log;
+    int clockTimes;
     int ended;
 } Simulation;
 

@@ -5,10 +5,8 @@
 #ifndef SIMULATOR_PQUEUE_H
 #define SIMULATOR_PQUEUE_H
 
-#include "PBC.h"
-
 typedef struct Node {
-    PCB *pcb;
+    struct PCB *pcb;
     struct Node *next;
 } Node;
 
@@ -17,10 +15,12 @@ typedef struct Queue {
     Node *first;
     Node *last;
     Node *current;
+    char *u;
 } Queue;
 
 Queue *newQueue();
 int addToQueue(Queue *queue, int burst, int priority);
+int addPCBToQueue(Queue *queue, int burst, int priority,int time);
 void printQueue(Queue *queue);
 
 #endif //SIMULATOR_PQUEUE_H

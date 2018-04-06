@@ -4,12 +4,15 @@
 
 #include <stdlib.h>
 #include "Simulation.h"
+#include <pthread.h>
+#include "PQueue.h"
 
 Simulation *newSimulation(enum pAlgorithm algorithm) {
-    Simulation *s = malloc(sizeof(Simulation));
+    Simulation *s =(Simulation*) malloc(sizeof(Simulation));
 
     s->processQueue = newQueue();
     s->algorithm = algorithm;
+    s->clockTimes=0;
     s->ended = 0;
     s->log = 0;
 

@@ -5,19 +5,20 @@
 #ifndef SIMULATOR_CPUPLANNING_H
 #define SIMULATOR_CPUPLANNING_H
 
-void setPCB_Burst(struct Node* process, int value);
+#include "PQueue.h"
+void setPCB_Burst(Node *process, int value);
 
 /*________________FIFO____________________*/
-struct Node* getLowerPID(struct Node* current,struct Node* lower);
-struct Node* searchLowerPID(struct Queue *queue);
-void FIFOAlgorithm(struct Queue *queue);
+Node* getLowerPID(Node *current,Node *lower);
+Node* searchLowerPID(Queue *queue);
+void FIFOAlgorithm(Queue *queue);
 
 /*_________________SJF______________________*/
-struct Node* searchLowerBurst(struct Queue *queue);
+Node* searchLowerBurst(Queue *queue);
 void SJFAlgorithm(struct Simulation *simulation);
 
 /*_________________HPF______________________*/
-struct Node* searchLowerPriority(struct Queue *queue);
+Node* searchLowerPriority(Queue *queue);
 void HPFAlgorithm(struct Simulation *simulation);
 
 /*_________________RR________________________*/

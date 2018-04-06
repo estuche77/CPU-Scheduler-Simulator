@@ -1,7 +1,3 @@
-//
-// Created by estuche on 02/04/18.
-//
-
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <printf.h>
@@ -12,6 +8,15 @@
 #include <pthread.h>
 #include "Socket.h"
 #include "Utils.h"
+#include "Simulation.h"
+#include "PBC.h"
+
+Socket* newSocket(Simulation *simulation, int id){
+    Socket *new_socket =(Socket*) malloc(sizeof(Socket));
+    new_socket->socketID = id;
+    new_socket->simulation = simulation;
+    return new_socket;
+}
 
 int configureSocket(unsigned short port) {
 
@@ -63,27 +68,29 @@ void *startListening(void *v) {
         }
 
         // New struct with socketID id and process queue
-        Socket *new_socket = malloc(sizeof(Socket));
-        new_socket->socketID = 0;
-        new_socket->queue = server_socket->queue;
-
+        Socket *new_socket = newSocket(server_socket->simulation,0);
+        new_socket->socketID = accept(server_socket->socketID, &server_address, (socklen_t*)&addressLength);
         // Keeps waiting for an incoming connection
-        if ((new_socket->socketID = accept(server_socket->socketID, &server_address, (socklen_t*)&addressLength)) < 0)
+        if (new_socket->socketID < 0)
         {
             perror("accept");
             exit(EXIT_FAILURE);
         }
+        threadComunication(new_socket);
+    }
 
-        pthread_t communication;
-        int result;
+}
 
-        // A communication thread is created
-        result = pthread_create(&communication, NULL, startCommunication, (void *)new_socket);
+void threadComunication(Socket *new_socket){
+    pthread_t communication;
+    int result;
 
-        if (result) {
-            printf("ERROR; return code from pthread_create() is %d\n", result);
-            exit(-1);
-        }
+    // A communication thread is created
+    result = pthread_create(&communication, NULL, startCommunication, (void *)new_socket);
+
+    if (result) {
+        printf("ERROR; return code from pthread_create() is %d\n", result);
+        exit(-1);
     }
 }
 
@@ -96,8 +103,7 @@ void *startCommunication(void *v) {
     printf("%s\n", buffer);
 
     // Here the data should be analyzed and inserted
-    int pid = addToQueue(socket->queue, 10, 10);
-
+    int pid=insertNewPCB(buffer,socket->simulation);
     // And pid is converted to string
     char *str_pid = intToString(pid);
 
@@ -108,4 +114,16 @@ void *startCommunication(void *v) {
     // Close the socketID and exits the thread
     close(socket->socketID);
     pthread_exit(NULL);
+}
+
+int insertNewPCB(char *message,Simulation *simulation){
+
+    int values[2];
+    char *token=strtok(message,DIVIDER);
+    for(int i=0;token!=NULL;i++){
+        values[i]=atoi(token);
+        token = strtok(NULL, DIVIDER);
+    }
+    return addPCBToQueue(simulation->processQueue,
+                         values[0],values[1],simulation->clockTimes);
 }

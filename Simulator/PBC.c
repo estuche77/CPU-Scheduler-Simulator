@@ -4,9 +4,12 @@
 
 #include "PBC.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-PCB *newPCB(int pid,int burst, int priority, int arrival_time){
-    PCB *pcb=malloc(sizeof(PCB));
+PCB *newPCB(int pid,int burst, int priority,
+            int arrival_time){
+
+    PCB *pcb=(PCB*)malloc(sizeof(PCB));
 
     pcb->pid=pid;
     pcb->state=READY;
@@ -42,7 +45,7 @@ void calculate_TAT(PCB *pcb){
     pcb->tat=pcb->exit_time-pcb->arrival_time;
 }
 
-void void calculate_WT(PCB *pcb){
+void calculate_WT(PCB *pcb){
     pcb->wt=pcb->tat-pcb->burst;
 }
 

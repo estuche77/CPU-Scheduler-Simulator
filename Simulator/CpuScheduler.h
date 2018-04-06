@@ -6,7 +6,6 @@
 #define SIMULATOR_CPUSCHEDULER_H
 
 #include "Simulation.h"
-
-void CpuScheduling(Simulation *);
+void CpuScheduling(Simulation *simulation);
 
 #endif //SIMULATOR_CPUSCHEDULER_H

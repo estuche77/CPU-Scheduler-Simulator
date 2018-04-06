@@ -5,8 +5,6 @@
 #ifndef SIMULATOR_PBC_H
 #define SIMULATOR_PBC_H
 
-#include <stdio.h>
-
 enum pState {READY, ACTIVE, ENDED};
 
 typedef struct PCB {
