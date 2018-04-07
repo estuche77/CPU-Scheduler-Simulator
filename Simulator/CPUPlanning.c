@@ -30,20 +30,26 @@ Node* searchLowerPID(Queue *queue){
     while(temp != NULL && !isProcessActived(temp->pcb)){
         temp=temp->next;
     }
+    if(isProcessEnded(temp)){
+        return NULL;
+    }
     return temp;
 }
 
 void FIFOAlgorithm(Queue *queue){
     Node *lowerPID=searchLowerPID(queue);
+    if(lowerPID==NULL){
+
+    }
     setState(lowerPID->pcb,ACTIVE);
     setPCB_Burst(lowerPID, 1);
-    setState(lowerPID->pcb,READY);
 
 }
 
 void executePlanning(Simulation *simulation){
 
     do{
+
         switch (simulation->algorithm){
 
             case FIFO:
@@ -63,6 +69,7 @@ void executePlanning(Simulation *simulation){
                 break;
         }
         sleep(1);
+        simulation->clockTimes++;
 
     }while(simulation->ended);
 

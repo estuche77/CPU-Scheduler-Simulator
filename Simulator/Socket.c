@@ -59,8 +59,7 @@ void *startListening(void *v) {
     struct sockaddr server_address;
     int addressLength = sizeof(server_address);
 
-    // Forever
-    while (1) {
+    while (!server_socket->simulation->ended) {
         if (listen(server_socket->socketID, 3) < 0)
         {
             perror("listen");
@@ -100,7 +99,7 @@ void *startCommunication(void *v) {
     // The data is fetched
     char buffer[40] = {0};
     read(socket->socketID, buffer, 40);
-    printf("%s\n", buffer);
+    //printf("%s\n", buffer);
 
     // Here the data should be analyzed and inserted
     int pid=insertNewPCB(buffer,socket->simulation);
@@ -109,7 +108,7 @@ void *startCommunication(void *v) {
 
     // After inserting the new process, the assigned pid is sent
     send(socket->socketID, str_pid, sizeof(str_pid), 0);
-    printf("Assigned PID: %s\n", str_pid);
+    //printf("Assigned PID: %s\n", str_pid);
 
     // Close the socketID and exits the thread
     close(socket->socketID);

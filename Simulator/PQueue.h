@@ -15,12 +15,11 @@ typedef struct Queue {
     Node *first;
     Node *last;
     Node *current;
-    char *u;
 } Queue;
 
 Queue *newQueue();
 int addToQueue(Queue *queue, int burst, int priority);
 int addPCBToQueue(Queue *queue, int burst, int priority,int time);
 void printQueue(Queue *queue);
-
+int isQueueEmpty(Queue * queue);
 #endif //SIMULATOR_PQUEUE_H

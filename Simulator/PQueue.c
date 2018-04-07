@@ -10,7 +10,6 @@ Queue *newQueue() {
     Queue *queue =(Queue*) malloc(sizeof(Queue));
     queue->counter = 1;
     queue->first = queue->last = queue->current = NULL;
-    queue->u="hehehehehehe";
     return queue;
 }
 
@@ -57,6 +56,9 @@ int addPCBToQueue(Queue *queue, int burst, int priority,int time){
     return node->pcb->pid;
 }
 
+int isQueueEmpty(Queue * queue){
+    return queue->first==NULL && queue->last==NULL;
+}
 void printQueue(Queue *queue) {
     Node *tmp = queue->first;
 
