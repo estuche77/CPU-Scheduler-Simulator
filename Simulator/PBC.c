@@ -55,11 +55,11 @@ void calculate_WT(PCB *pcb){
 }
 
 void printPCB(PCB *pcb){
-    printf("PID: %d | Iinitial Burst: %d | Actual burst: %d | Priority: %d | Arrival time: %d\n",
+    printf("\n* PID: %d | Iinitial Burst: %d | Actual burst: %d | Priority: %d | Arrival time: %d\n",
            pcb->pid,pcb->burst,pcb->burstLeft, pcb->priority, pcb->arrival_time);
 }
 
 void printFinalPCB(PCB *pcb){
-    printf("PID: %d | TAT: %d | WT: %d\n",
+    printf("* PID: %d | TAT: %d | WT: %d\n",
            pcb->pid,pcb->tat, pcb->wt);
 }

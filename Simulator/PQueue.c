@@ -76,11 +76,13 @@ void nextNode(Queue * queue)
 }
 void print_Queued_Processes(Queue *queue)
 {
+    printf("\n* ---------> Log <---------\n");
     Node *temp=queue->first;
     while(temp!=NULL){
         if(isProcessReady(temp->pcb)){
             printPCB(temp->pcb);
         }
+        temp=temp->next;
     }
 }
 void printQueue(Queue *queue) {

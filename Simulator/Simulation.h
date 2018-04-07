@@ -19,6 +19,7 @@ typedef struct Simulation {
 } Simulation;
 
 Simulation *newSimulation(enum pAlgorithm algorithm);
+void activetedLog(Simulation *simulation);
 enum pAlgorithm types_of_Algorithms();
 void closing_menu(Simulation *simulation);
 void increaseIdleTime(Simulation *simulation);

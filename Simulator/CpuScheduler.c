@@ -106,6 +106,12 @@ void setPCB_Burst(Node *process, int value)
         setState(process->pcb,ENDED);
     }
 }
+
+void process_To_Execute(Node *process){
+    printf("\n* --> process To Execute: PID: %d | Burst: %d | Priority: %d\n",
+    process->pcb->pid,process->pcb->burstLeft,process->pcb->priority);
+}
+
 void runProcess(Node *process,Simulation *simulation)
 {
     // there are no ready processes
@@ -117,6 +123,7 @@ void runProcess(Node *process,Simulation *simulation)
 
     } else{//there is an active process
         setState(process->pcb,ACTIVE);
+        process_To_Execute(process);
         for(int i=0;!isProcessEnded(process->pcb);i++){
             increaseClockTimes(simulation);
             setPCB_Burst(process, 1);
@@ -169,7 +176,7 @@ void *executePlanning(void *s)
         selectedProcess=contextSwitch(simulation);
         runProcess(selectedProcess,simulation);
 
-    }while(simulation->ended);
+    }while(simulation->ended!=1);
     pthread_exit(NULL);
 }
 void CpuScheduling(Simulation *simulation) {
@@ -183,7 +190,4 @@ void CpuScheduling(Simulation *simulation) {
         printf("ERROR; return code from pthread_create() is %d\n", result);
         exit(-1);
     }
-
-    // THIS LINE SHOULD BE ERASED LATER!!!
-    pthread_join(schedulerThread, NULL);
 }

@@ -60,6 +60,7 @@ void *startListening(void *v) {
     int addressLength = sizeof(server_address);
 
     while (!server_socket->simulation->ended) {
+
         if (listen(server_socket->socketID, 3) < 0)
         {
             perror("listen");

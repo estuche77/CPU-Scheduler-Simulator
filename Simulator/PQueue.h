@@ -20,6 +20,7 @@ typedef struct Queue {
 Queue *newQueue();
 int addToQueue(Queue *queue, int burst, int priority);
 int addPCBToQueue(Queue *queue, int burst, int priority,int time);
+void print_Queued_Processes(Queue *queue);
 void printQueue(Queue *queue);
 int isQueueEmpty(Queue * queue);
 void nextNode(Queue * queue);

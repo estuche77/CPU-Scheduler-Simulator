@@ -33,12 +33,7 @@ void activateListen(Socket *server_socket){
         printf("ERROR; return code from pthread_create() is %d\n", result);
         exit(-1);
     }
-    else{
-        closing_menu(server_socket->simulation);
-    }
 
-    // THIS LINE SHOULD BE ERASED LATER!!!
-    pthread_join(listeningThread, NULL);
 }
 
 

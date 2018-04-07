@@ -43,7 +43,7 @@ enum pAlgorithm types_of_Algorithms()
 {
     int option=0;
     do{
-        printf("************Algorithms************\n");
+        printf("\n************Algorithms************\n");
         printf("*                                *\n");
         printf("* 1) FIFO                        *\n");
         printf("* 2) SJF                         *\n");
@@ -72,7 +72,8 @@ enum pAlgorithm types_of_Algorithms()
 
 }
 
-void printSummary(Simulation *simulation){
+void printSummary(Simulation *simulation)
+{
 
     int executed_Processes=0;
     int TAT_Average=0;
@@ -94,23 +95,20 @@ void printSummary(Simulation *simulation){
         temp=temp->next;
     }
     TAT_Average=TAT_Average/executed_Processes;
-    WT_Average=TAT_Average/executed_Processes;
+    WT_Average= WT_Average/executed_Processes;
 
-    printf("* 1) Number of processes executed: %d\n",executed_Processes);
+    printf("\n* 1) Number of processes executed: %d\n",executed_Processes);
     printf("* 2) Seconds with idle CPU:        %d\n",simulation->idleTime);
     printf("* 3) Average Turn Around Time:     %d\n",TAT_Average);
     printf("* 4) Average Waiting Time:         %d\n",WT_Average);
 
 
 }
+
 void generate_summary(Simulation *simulation)
 {
-    printf("* generating summary.");
-    for(int i=0; i<10;i++){
-        printf(".");
-        sleep(1);
-    }
-    printf("\n");
+    printf("*-------> generating summary <-------\n");
+
     printSummary(simulation);
 }
 
@@ -118,9 +116,9 @@ void closing_menu(Simulation *simulation)
 {
     int option=0;
     do{
-        printf("************ SUB MENU ************\n");
+        printf("\n************ SUB MENU ************\n");
         printf("*                                *\n");
-        printf("* 1) Print log                   *\n");
+        printf("* 1) Print ready process         *\n");
         printf("* 2) Finish simulation           *\n");
         printf("*                                *\n");
         printf("**********************************\n");
@@ -131,7 +129,7 @@ void closing_menu(Simulation *simulation)
         switch (option){
             case 1:
                 activetedLog(simulation);//active
-                printQueue(simulation->processQueue);
+                print_Queued_Processes(simulation->processQueue);
                 activetedLog(simulation);//disable
                 break;
 
