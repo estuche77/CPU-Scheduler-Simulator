@@ -20,14 +20,14 @@ int main() {
         printf("*                                *\n");
         printf("**********************************\n");
         printf("*                                *\n");
-        printf("*--> Type your option: ");
+        printf("* --> Type your option: ");
         scanf("%d",&(option));
         while(getchar()!='\n');
         switch (option){
             case 1:
                 break;
             case 2:
-                simulation->algorithm=types_of_Algorithms();
+                types_of_Algorithms(simulation);
                 break;
             case 3:
                 JobScheduling(simulation, PORT);

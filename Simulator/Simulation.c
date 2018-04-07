@@ -39,7 +39,7 @@ void increaseClockTimes(Simulation *simulation)
     simulation->clockTimes++;
 }
 
-enum pAlgorithm types_of_Algorithms()
+void types_of_Algorithms(Simulation *simulation)
 {
     int option=0;
     do{
@@ -52,18 +52,27 @@ enum pAlgorithm types_of_Algorithms()
         printf("*                                *\n");
         printf("**********************************\n");
         printf("*                                *\n");
-        printf("*--> Type your option: ");
+        printf("* --> Type your option: ");
         scanf("%d",&(option));
         while(getchar()!='\n');
         switch (option) {
             case 1:
-                return FIFO;
+                simulation->algorithm=FIFO;
+                return;
             case 2:
-                return SJF;
+                simulation->algorithm=SJF;
+                return;
             case 3:
-                return HPF;
+                simulation->algorithm=HPF;
+                return;
             case 4:
-                return RR;
+                simulation->algorithm=RR;
+                int q=0;
+                printf("* --> Type quantum value: ");
+                scanf("%d",&(q));
+                while(getchar()!='\n');
+                simulation->quantum=q;
+                return;
             default:
                 printf("*           Invalid option       *\n");
                 break;
@@ -94,8 +103,11 @@ void printSummary(Simulation *simulation)
         }
         temp=temp->next;
     }
-    TAT_Average=TAT_Average/executed_Processes;
-    WT_Average= WT_Average/executed_Processes;
+    if(executed_Processes){
+        TAT_Average=TAT_Average/executed_Processes;
+        WT_Average= WT_Average/executed_Processes;
+    }
+
 
     printf("\n* 1) Number of processes executed: %d\n",executed_Processes);
     printf("* 2) Seconds with idle CPU:        %d\n",simulation->idleTime);

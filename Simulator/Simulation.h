@@ -20,7 +20,7 @@ typedef struct Simulation {
 
 Simulation *newSimulation(enum pAlgorithm algorithm);
 void activetedLog(Simulation *simulation);
-enum pAlgorithm types_of_Algorithms();
+void types_of_Algorithms(Simulation *simulation);
 void closing_menu(Simulation *simulation);
 void increaseIdleTime(Simulation *simulation);
 void increaseClockTimes(Simulation *simulation);

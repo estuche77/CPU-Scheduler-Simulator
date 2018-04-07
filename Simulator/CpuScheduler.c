@@ -21,6 +21,9 @@ Node* firstReadyProccess(Node *current)
         }
         temp=temp->next;
     }
+    if(temp != NULL && isProcessEnded(temp->pcb)){
+        return NULL;
+    }
     return temp;
 }
 /*_______________FIFO___________________*/
@@ -60,7 +63,8 @@ Node* searchLowerBurst(Queue *queue)
         }
         temp=temp->next;
     }
-    return temp;
+
+    return lower;
 }
 /*_______________HPF___________________*/
 Node* getHighPriority(Node *current,Node *lower)
@@ -83,8 +87,7 @@ Node* searchHighPriority(Queue *queue)
         }
         temp=temp->next;
     }
-
-    return temp;
+    return lower;
 }
 /*_______________RR___________________*/
 Node* searchNextProcessRR(Queue *queue)
@@ -108,8 +111,8 @@ void setPCB_Burst(Node *process, int value)
 }
 
 void process_To_Execute(Node *process){
-    printf("\n* --> process To Execute: PID: %d | Burst: %d | Priority: %d\n",
-    process->pcb->pid,process->pcb->burstLeft,process->pcb->priority);
+    printf("\n* Process To Execute: \n");
+    printPCB(process->pcb);
 }
 
 void runProcess(Node *process,Simulation *simulation)
@@ -124,13 +127,13 @@ void runProcess(Node *process,Simulation *simulation)
     } else{//there is an active process
         setState(process->pcb,ACTIVE);
         process_To_Execute(process);
-        for(int i=0;!isProcessEnded(process->pcb);i++){
+        for(int i=1;!isProcessEnded(process->pcb);i++){
             increaseClockTimes(simulation);
             setPCB_Burst(process, 1);
             setExitTime(process->pcb,simulation->clockTimes);
             sleep(1);
             //if the simulation has quantum the process stops
-            if(simulation->quantum && i < simulation->quantum){
+            if(simulation->quantum && i == simulation->quantum){
                 if(!isProcessEnded(process->pcb)){
                     setState(process->pcb,READY);
                 }
