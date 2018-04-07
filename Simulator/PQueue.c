@@ -9,7 +9,8 @@
 Queue *newQueue() {
     Queue *queue =(Queue*) malloc(sizeof(Queue));
     queue->counter = 1;
-    queue->first = queue->last = queue->current = NULL;
+    queue->first = queue->last = NULL;
+    queue->current =queue->first;
     return queue;
 }
 
@@ -59,6 +60,29 @@ int addPCBToQueue(Queue *queue, int burst, int priority,int time){
 int isQueueEmpty(Queue * queue){
     return queue->first==NULL && queue->last==NULL;
 }
+
+void nextNode(Queue * queue)
+{
+
+    if(queue->current == queue->last ||
+       queue->current==NULL){
+
+        queue->current=queue->first;
+    }
+    else{
+        queue->current=queue->current->next;
+    }
+
+}
+void print_Queued_Processes(Queue *queue)
+{
+    Node *temp=queue->first;
+    while(temp!=NULL){
+        if(isProcessReady(temp->pcb)){
+            printPCB(temp->pcb);
+        }
+    }
+}
 void printQueue(Queue *queue) {
     Node *tmp = queue->first;
 
@@ -68,3 +92,5 @@ void printQueue(Queue *queue) {
     }
     printf("\n");
 }
+
+

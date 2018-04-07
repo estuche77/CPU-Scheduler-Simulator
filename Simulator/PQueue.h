@@ -22,4 +22,5 @@ int addToQueue(Queue *queue, int burst, int priority);
 int addPCBToQueue(Queue *queue, int burst, int priority,int time);
 void printQueue(Queue *queue);
 int isQueueEmpty(Queue * queue);
+void nextNode(Queue * queue);
 #endif //SIMULATOR_PQUEUE_H

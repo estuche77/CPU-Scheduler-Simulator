@@ -20,8 +20,6 @@ void JobScheduling(Simulation *simulation, unsigned short port) {
     // New struct with socketID id and process queue
     Socket *server_socket = newSocket(simulation,sock);
     activateListen(server_socket);
-
-
 }
 
 void activateListen(Socket *server_socket){
@@ -35,8 +33,13 @@ void activateListen(Socket *server_socket){
         printf("ERROR; return code from pthread_create() is %d\n", result);
         exit(-1);
     }
+    else{
+        closing_menu(server_socket->simulation);
+    }
 
     // THIS LINE SHOULD BE ERASED LATER!!!
     pthread_join(listeningThread, NULL);
 }
+
+
 

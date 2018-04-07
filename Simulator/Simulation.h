@@ -13,9 +13,16 @@ typedef struct Simulation {
     enum pAlgorithm algorithm;
     int log;
     int clockTimes;
+    int idleTime;
+    int quantum;
     int ended;
 } Simulation;
 
 Simulation *newSimulation(enum pAlgorithm algorithm);
-
+enum pAlgorithm types_of_Algorithms();
+void closing_menu(Simulation *simulation);
+void increaseIdleTime(Simulation *simulation);
+void increaseClockTimes(Simulation *simulation);
+void printSummary(Simulation *simulation);
+void generate_summary(Simulation *simulation);
 #endif //SIMULATOR_SIMULATION_H

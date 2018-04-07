@@ -40,6 +40,11 @@ int setState(PCB *process,enum pState state){
     process->state=state;
 }
 
+int setExitTime(PCB *process,int time){
+    if(isProcessEnded(process)){
+        process->exit_time=time;
+    }
+}
 
 void calculate_TAT(PCB *pcb){
     pcb->tat=pcb->exit_time-pcb->arrival_time;
