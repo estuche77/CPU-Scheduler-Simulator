@@ -60,6 +60,6 @@ void printPCB(PCB *pcb){
 }
 
 void printFinalPCB(PCB *pcb){
-    printf("* PID: %d | TAT: %d | WT: %d\n",
-           pcb->pid,pcb->tat, pcb->wt);
+    printf("* PID: %d | TAT: %d | WT: %d | Exit_time %d\n",
+           pcb->pid,pcb->tat, pcb->wt,pcb->exit_time);
 }

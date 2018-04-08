@@ -12,14 +12,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1f36c66-7f33-46c4-9c50-8f71af17fa81" name="Default" comment="Algorithm searches, process execution, summary of CPU scheduler">
+      <change afterPath="$PROJECT_DIR$/../Generator/MessageControl.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Generator/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Generator/FileControl.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Generator/FileControl.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/MessageControl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Generator/Socket.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/Socket.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Generator/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CpuScheduler.c" beforeDir="false" afterPath="$PROJECT_DIR$/CpuScheduler.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobScheduler.c" beforeDir="false" afterPath="$PROJECT_DIR$/JobScheduler.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PBC.c" beforeDir="false" afterPath="$PROJECT_DIR$/PBC.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulation.h" beforeDir="false" afterPath="$PROJECT_DIR$/Simulation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PBC.h" beforeDir="false" afterPath="$PROJECT_DIR$/PBC.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,49 +39,10 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+            <state relative-caret-position="2">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Simulation.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Simulation.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Simulation.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Simulation.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
-              <folding>
-                <element signature="e#211#499#0" />
-                <element signature="e#501#585#0" />
-                <element signature="e#587#664#0" />
-                <element signature="e#666#747#0" />
-                <element signature="e#1782#2711#0" />
-                <element signature="e#2713#2848#0" />
-                <element signature="e#2850#3923#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CpuScheduler.c" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CpuScheduler.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="136" column="6" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
-              <folding>
-                <element signature="e#41#60#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,10 +51,22 @@
       <file leaf-file-name="JobScheduler.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JobScheduler.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="359">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <element signature="e#41#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CpuScheduler.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CpuScheduler.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="136" column="13" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
+              <folding>
+                <element signature="e#41#60#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,17 +88,17 @@
         <option value="$PROJECT_DIR$/Socket.h" />
         <option value="$PROJECT_DIR$/CPUPlanning.h" />
         <option value="$PROJECT_DIR$/CPUPlanning.c" />
-        <option value="$PROJECT_DIR$/PBC.h" />
         <option value="$PROJECT_DIR$/CpuScheduler.h" />
         <option value="$PROJECT_DIR$/PQueue.h" />
         <option value="$PROJECT_DIR$/Socket.c" />
-        <option value="$PROJECT_DIR$/JobScheduler.c" />
         <option value="$PROJECT_DIR$/PQueue.c" />
-        <option value="$PROJECT_DIR$/PBC.c" />
         <option value="$PROJECT_DIR$/Simulation.h" />
-        <option value="$PROJECT_DIR$/CpuScheduler.c" />
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/Simulation.c" />
+        <option value="$PROJECT_DIR$/PBC.c" />
+        <option value="$PROJECT_DIR$/PBC.h" />
+        <option value="$PROJECT_DIR$/JobScheduler.c" />
+        <option value="$PROJECT_DIR$/CpuScheduler.c" />
       </list>
     </option>
   </component>
@@ -134,7 +111,7 @@
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
     <option name="y" value="27" />
-    <option name="width" value="903" />
+    <option name="width" value="912" />
     <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -143,7 +120,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -155,11 +131,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Schedulers/ejemplo sockets/ejemplo 1/servidor/CMakeLists.txt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CMakeLists.txt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -197,7 +174,8 @@
       <workItem from="1522981978588" duration="7569000" />
       <workItem from="1522995658566" duration="16943000" />
       <workItem from="1523038109842" duration="9420000" />
-      <workItem from="1523071152611" duration="43514000" />
+      <workItem from="1523071152611" duration="46490000" />
+      <workItem from="1523165666030" duration="6303000" />
     </task>
     <task id="LOCAL-00001" summary="pcb's funtions and fifo algorithm">
       <created>1522996627673</created>
@@ -227,11 +205,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523098933123</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="correction in search methods">
+      <created>1523141990955</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1523141990955</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120802000" />
+    <option name="totallyTimeSpent" value="130081000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -243,16 +228,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="903" height="738" extended-state="0" />
+    <frame x="0" y="27" width="912" height="738" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.12386364" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.122609675" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.6842975" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.57685953" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.3298193" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500565" side_tool="true" weight="0.91239667" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.61157024" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.16859505" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49943504" visible="true" weight="0.3322314" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.55041325" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49943504" visible="true" weight="0.18842976" />
       <window_info id="Structure" order="1" sideWeight="0.5011236" side_tool="true" weight="0.24963397" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.19008264" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -263,25 +247,26 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.61157024" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="CMake" order="11" weight="0.3298193" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988764" weight="0.22947131" />
       <window_info id="Structure" order="1" sideWeight="0.5011236" side_tool="true" weight="0.24963397" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289256" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49943504" visible="true" weight="0.1785124" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.61157024" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990964" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.6842975" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.19008264" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500565" side_tool="true" weight="0.91239667" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289256" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="CMake" order="11" weight="0.3298193" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.61157024" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.6842975" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -324,22 +309,11 @@
     <MESSAGE value="the node is added with the data sent by generator" />
     <MESSAGE value="main menu" />
     <MESSAGE value="Algorithm searches, process execution, summary of CPU scheduler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Algorithm searches, process execution, summary of CPU scheduler" />
+    <MESSAGE value="correction in search methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction in search methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Simulation.c</url>
-          <line>37</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Simulation.h</url>
-          <line>8</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="8" />
     </breakpoint-manager>
   </component>
@@ -588,9 +562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding>
-            <element signature="e#118#141#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -604,20 +575,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CPUPlanning.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPUPlanning.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/CPUPlanning.h" />
+    <entry file="file://$PROJECT_DIR$/CPUPlanning.c" />
     <entry file="file://$PROJECT_DIR$/CpuScheduler.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -632,13 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PBC.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -659,63 +611,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PBC.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
-          <folding>
-            <element signature="e#42#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JobScheduler.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#41#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Simulation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Simulation.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
+        <state relative-caret-position="517">
           <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
           <folding>
             <element signature="e#211#499#0" />
             <element signature="e#501#585#0" />
             <element signature="e#587#664#0" />
             <element signature="e#666#747#0" />
-            <element signature="e#1782#2711#0" />
-            <element signature="e#2713#2848#0" />
-            <element signature="e#2850#3923#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PBC.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PBC.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <folding>
+            <element signature="e#42#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="22" selection-start-line="22" selection-end-line="22" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JobScheduler.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="e#41#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CpuScheduler.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="136" column="6" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
+        <state relative-caret-position="396">
+          <caret line="136" column="13" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
           <folding>
             <element signature="e#41#60#0" expanded="true" />
           </folding>

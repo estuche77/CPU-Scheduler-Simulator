@@ -72,9 +72,6 @@ void startCommunication(const int socketDescriptor, const char *msg) {
         printf("Thread creation failed with code %d\n", result);
         return;
     }
-
-    // THIS LINE SHOULD BE ERASED LATER!!! Escuchó Jake???
-    pthread_join(pthread, NULL);
 }
 
 void *runCommunication(void* v) {

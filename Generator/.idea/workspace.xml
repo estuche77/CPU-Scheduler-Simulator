@@ -12,10 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f2a4dd3-467b-454c-b0b8-4fbc73711220" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/MessageControl.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileControl.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileControl.h" beforeDir="false" afterPath="$PROJECT_DIR$/MessageControl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Socket.c" beforeDir="false" afterPath="$PROJECT_DIR$/Socket.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulator/CpuScheduler.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/CpuScheduler.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Simulator/JobScheduler.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/JobScheduler.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulator/PBC.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/PBC.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulator/PBC.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/PBC.h" afterDir="false" />
     </list>
@@ -30,23 +36,27 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+            <state relative-caret-position="464">
+              <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#234#266#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils.c">
+      <file leaf-file-name="MessageControl.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MessageControl.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="15" column="30" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="30" />
+            <state relative-caret-position="4">
+              <caret line="40" column="28" lean-forward="true" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+              <folding>
+                <element signature="e#39#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,8 +64,8 @@
       <file leaf-file-name="Socket.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Socket.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
+            <state relative-caret-position="234">
+              <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
               <folding>
                 <element signature="e#434#1460#0" />
               </folding>
@@ -63,7 +73,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="MessageControl.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MessageControl.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>fopen</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -76,10 +100,14 @@
         <option value="$PROJECT_DIR$/Utils.h" />
         <option value="$PROJECT_DIR$/Socket.h" />
         <option value="$PROJECT_DIR$/Utils.c" />
-        <option value="$PROJECT_DIR$/Socket.c" />
         <option value="$PROJECT_DIR$/Process.h" />
         <option value="$PROJECT_DIR$/Process.c" />
+        <option value="$PROJECT_DIR$/FileControl.h" />
+        <option value="$PROJECT_DIR$/FileControl.c" />
         <option value="$PROJECT_DIR$/main.c" />
+        <option value="$PROJECT_DIR$/MessageControl.h" />
+        <option value="$PROJECT_DIR$/Socket.c" />
+        <option value="$PROJECT_DIR$/MessageControl.c" />
       </list>
     </option>
   </component>
@@ -91,9 +119,10 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="27" />
-    <option name="width" value="688" />
-    <option name="height" value="674" />
+    <option name="x" value="241" />
+    <option name="y" value="60" />
+    <option name="width" value="831" />
+    <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -117,7 +146,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CMakeLists.txt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Simulator/CMakeLists.txt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -156,7 +185,7 @@
       <workItem from="1522996711750" duration="6887000" />
       <workItem from="1523038103000" duration="5656000" />
       <workItem from="1523071152569" duration="628000" />
-      <workItem from="1523077634571" duration="18763000" />
+      <workItem from="1523077634571" duration="37802000" />
     </task>
     <task id="LOCAL-00001" summary="CPU scheduler and job scheduler work simultaneously">
       <created>1523127575835</created>
@@ -165,11 +194,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523127575835</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="filecontrols was added">
+      <created>1523153604066</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523153604066</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71422000" />
+    <option name="totallyTimeSpent" value="90461000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -181,15 +217,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="688" height="674" extended-state="0" />
-    <editor active="true" />
+    <frame x="241" y="60" width="831" height="738" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21804512" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08292079" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.075785585" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3271719" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.43966943" />
       <window_info anchor="bottom" id="CMake" order="7" sideWeight="0.4996277" weight="0.3295082" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5003723" side_tool="true" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.58225507" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32902032" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5371901" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3295082" />
@@ -201,7 +237,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32902032" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="CMake" order="11" sideWeight="0.4996277" weight="0.3295082" />
@@ -232,7 +267,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="CPU scheduler and job scheduler work simultaneously" />
-    <option name="LAST_COMMIT_MESSAGE" value="CPU scheduler and job scheduler work simultaneously" />
+    <MESSAGE value="filecontrols was added" />
+    <option name="LAST_COMMIT_MESSAGE" value="filecontrols was added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -375,20 +411,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PBC.h" />
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/Utils.h" />
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="86" selection-start-line="6" selection-start-column="86" selection-end-line="6" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Process.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utils.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -403,23 +425,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Process.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Socket.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="95" column="1" selection-start-line="95" selection-start-column="1" selection-end-line="95" selection-end-column="1" />
-          <folding>
-            <element signature="e#434#1460#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utils.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -427,12 +432,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="86" selection-start-line="6" selection-start-column="86" selection-end-line="6" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/x86_64-linux-gnu/bits/types/FILE.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/libio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="241" column="20" selection-start-line="241" selection-start-column="20" selection-end-line="241" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Process.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Process.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessageControl.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Socket.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
+          <folding>
+            <element signature="e#434#1460#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        <state relative-caret-position="464">
+          <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#234#266#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessageControl.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4">
+          <caret line="40" column="28" lean-forward="true" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+          <folding>
+            <element signature="e#39#57#0" expanded="true" />
           </folding>
         </state>
       </provider>

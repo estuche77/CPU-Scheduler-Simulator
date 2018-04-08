@@ -1,8 +1,0 @@
-//
-// Created by shake on 07/04/18.
-//
-
-#ifndef GENERATOR_FILECONTROL_H
-#define GENERATOR_FILECONTROL_H
-
-#endif //GENERATOR_FILECONTROL_H

@@ -127,18 +127,19 @@ void runProcess(Node *process,Simulation *simulation)
     } else{//there is an active process
         setState(process->pcb,ACTIVE);
         process_To_Execute(process);
-        for(int i=1;!isProcessEnded(process->pcb);i++){
-            increaseClockTimes(simulation);
-            setPCB_Burst(process, 1);
-            setExitTime(process->pcb,simulation->clockTimes);
-            sleep(1);
+        for(int i=0;isProcessActived(process->pcb);i++){
             //if the simulation has quantum the process stops
-            if(simulation->quantum && i == simulation->quantum){
-                if(!isProcessEnded(process->pcb)){
+            if(simulation->quantum && i == (simulation->quantum-1)){
+                if(isProcessActived(process->pcb)){
                     setState(process->pcb,READY);
                 }
                 return;
             }
+            increaseClockTimes(simulation);
+            setPCB_Burst(process, 1);
+            setExitTime(process->pcb,simulation->clockTimes);
+            sleep(1);
+
         }
     }
 }
