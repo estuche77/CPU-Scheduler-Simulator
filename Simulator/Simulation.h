@@ -5,18 +5,25 @@
 #ifndef SIMULATOR_SIMULATION_H
 #define SIMULATOR_SIMULATION_H
 
-#include <pthread.h>
 #include "PQueue.h"
-
 enum pAlgorithm {FIFO, SJF, HPF, RR};
 
 typedef struct Simulation {
     Queue *processQueue;
     enum pAlgorithm algorithm;
     int log;
+    int clockTimes;
+    int idleTime;
+    int quantum;
     int ended;
 } Simulation;
 
 Simulation *newSimulation(enum pAlgorithm algorithm);
-
+void activetedLog(Simulation *simulation);
+void types_of_Algorithms(Simulation *simulation);
+void closing_menu(Simulation *simulation);
+void increaseIdleTime(Simulation *simulation);
+void increaseClockTimes(Simulation *simulation);
+void printSummary(Simulation *simulation);
+void generate_summary(Simulation *simulation);
 #endif //SIMULATOR_SIMULATION_H

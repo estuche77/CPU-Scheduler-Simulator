@@ -5,30 +5,60 @@
 #include "Process.h"
 #include "Socket.h"
 #include "Utils.h"
+#include "MessageControl.h"
+#include <unistd.h>
+#include <pthread.h>
 
-#define PORT 8080
-#define HOST "127.0.0.1"
+void subMenu(Message *m);
+
+void subMenu(Message *m){
+    char option='n';
+    do{
+        scanf("%c",&(option));
+        while(getchar()!='\n');
+        switch (option){
+            case 's':
+                m->active=0;
+                break;
+        }
+    }while(option!='s');
+}
 
 int main() {
+    Message *m=newMessage();
+    int option=0;
+    do {
+        printf("\n**************MENU****************\n");
+        printf("*                                *\n");
+        printf("* 1) Configuration               *\n");
+        printf("* 2) Manual control              *\n");
+        printf("* 3) Automatic control           *\n");
+        printf("* 4) Finish                      *\n");
+        printf("*                                *\n");
+        printf("**********************************\n");
+        printf("*                                *\n");
+        printf("* --> Type your option: ");
+        scanf("%d",&(option));
+        while(getchar()!='\n');
+        switch (option){
+            case 1:
+                break;
+            case 2:
+                manualControl(m);
+                break;
+            case 3:
+                automaticControl(m);
+                subMenu(m);
+                break;
+            case 4:
+                m->active=0;
+                printf("\n*-----> closing simulation <-----*\n");
+                break;
+            default:
+                printf("\n*-------> Invalid option <-------*\n");
+                break;
+        }
+    }while(m->active);
+    pthread_exit(NULL);
 
-    // Instruction used to initialize the random seed
-    srand((unsigned int) time(NULL));
-
-    // Randomly create 300 process and send it to server
-    for (int i = 0; i < 500; i++) {
-
-        // Random values
-        int randomBurst = randIntBetween(0, 100);
-        int randomPriority = randIntBetween(1, 20);
-
-        // Process creation
-        Process *process = newProcess(randomBurst, randomPriority);
-        char *str = toString(process);
-
-        // Connection and communication
-        int socket = connectSocket(HOST, PORT);
-        startCommunication(socket, str);
-    }
-
-    return 0;
 }

@@ -1,10 +1,11 @@
 //
 // Created by estuche on 03/04/18.
 //
-
+#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
 #include "JobScheduler.h"
-#include "Socket.h"
 
 void JobScheduling(Simulation *simulation, unsigned short port) {
 
@@ -17,10 +18,11 @@ void JobScheduling(Simulation *simulation, unsigned short port) {
     }
 
     // New struct with socketID id and process queue
-    Socket *server_socket = malloc(sizeof(Socket));
-    server_socket->socketID = sock;
-    server_socket->queue = simulation->processQueue;
+    Socket *server_socket = newSocket(simulation,sock);
+    activateListen(server_socket);
+}
 
+void activateListen(Socket *server_socket){
     pthread_t listeningThread;
     int result;
 
@@ -31,8 +33,9 @@ void JobScheduling(Simulation *simulation, unsigned short port) {
         printf("ERROR; return code from pthread_create() is %d\n", result);
         exit(-1);
     }
-
-    // THIS LINE SHOULD BE ERASED LATER!!! Escuchó Jake???
-    pthread_join(listeningThread, NULL);
-
 }
+
+
+
+
+

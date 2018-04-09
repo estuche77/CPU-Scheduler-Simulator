@@ -25,11 +25,10 @@ char *toString(Process *process) {
     // value are 10 digits each
     char *string = malloc(37);
 
-    strcat(string, "BURST:");
-    strcat(string, intToString(process->burst));
-    strcat(string, "\n");
-    strcat(string, "PRIORITY:");
-    strcat(string, intToString(process->priority));
 
+    strcat(string, intToString(process->burst));
+    strcat(string, DIVIDER);
+    strcat(string, intToString(process->priority));
+    strcat(string, DIVIDER);
     return string;
 }
