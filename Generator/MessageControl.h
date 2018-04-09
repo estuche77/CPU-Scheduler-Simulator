@@ -19,7 +19,7 @@
 
 enum generationType {AUTOMATIC, MANUAL};
 
-typedef struct message{
+typedef struct Message{
     int lowerPriority;
     int highPriority;
     int lowerCreate;
@@ -34,10 +34,19 @@ typedef struct message{
 
 Message *newMessage();
 
+// Main function where Message Control starts to work
 void startMessageControl(Message * m, enum generationType type);
+
+// Used as a thread for Manual process of the Generation
 void *manualControl(void *v);
+
+// Used as as thread for Automatic process Generation
 void *automaticControl(void *v);
+
+// To send over a socket connection
 void sendMessage(char *str, Message *m);
+
+// Generate a random process
 Process *generateRandomProcess(Message *m);
 
 #endif //GENERATOR_FILECONTROL_H

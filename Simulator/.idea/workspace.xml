@@ -13,10 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f1f36c66-7f33-46c4-9c50-8f71af17fa81" name="Default" comment="Algorithm searches, process execution, summary of CPU scheduler">
       <change beforePath="$PROJECT_DIR$/../Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Generator/MessageControl.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/MessageControl.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Generator/MessageControl.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/MessageControl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Generator/Process.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/Process.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Generator/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Generator/Process.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/Process.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,8 +42,8 @@
       <file leaf-file-name="JobScheduler.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JobScheduler.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="222">
+              <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
               <folding>
                 <element signature="e#41#59#0" expanded="true" />
               </folding>
@@ -216,7 +214,7 @@
       <workItem from="1523071152611" duration="46490000" />
       <workItem from="1523165666030" duration="6303000" />
       <workItem from="1523237850497" duration="1905000" />
-      <workItem from="1523243934336" duration="10601000" />
+      <workItem from="1523243934336" duration="11071000" />
     </task>
     <task id="LOCAL-00001" summary="pcb's funtions and fifo algorithm">
       <created>1522996627673</created>
@@ -257,7 +255,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142587000" />
+    <option name="totallyTimeSpent" value="143057000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -677,8 +675,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JobScheduler.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="222">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
           <folding>
             <element signature="e#41#59#0" expanded="true" />
           </folding>
