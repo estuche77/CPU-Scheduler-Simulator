@@ -22,7 +22,7 @@ void JobScheduling(Simulation *simulation, unsigned short port) {
     activateListen(server_socket);
 }
 
-void activateListen(Socket *server_socket){
+void activateListen(Socket *server_socket) {
     pthread_t listeningThread;
     int result;
 

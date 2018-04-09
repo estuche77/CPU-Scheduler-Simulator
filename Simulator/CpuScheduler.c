@@ -15,14 +15,11 @@
 Node* firstReadyProcess(Node *current)
 {
     Node *temp = current;
-    while(temp != NULL ){
-        if(isProcessReady(temp->pcb)){
+    while (temp != NULL ) {
+        if(isProcessReady(temp->pcb)) {
             return temp;
         }
         temp = temp->next;
-    }
-    if(isProcessEnded(temp->pcb)){
-        return NULL;
     }
     return temp;
 }
@@ -95,56 +92,71 @@ Node* searchNextProcessRR(Queue *queue)
     Node *temp;
     /*update the current node to the next ready process in
      * the queue, it can be the same input node*/
-    queue->current= firstReadyProcess(queue->current);
-    temp=queue->current;
+    queue->current = firstReadyProcess(queue->current);
+    temp = queue->current;
     nextNode(queue);
     return temp;
 }
 /*_________________Planning________________________*/
 void setPCB_Burst(Node *process, int value)
 {
-    process->pcb->burstLeft-=value;
-    if(process->pcb->burstLeft <=0){
-        process->pcb->burstLeft=0;
-        setState(process->pcb,ENDED);
+    process->pcb->burstLeft -= value;
+
+    if(process->pcb->burstLeft <= 0) {
+        process->pcb->burstLeft = 0;
+        setState(process->pcb, ENDED);
     }
 }
 
-void process_To_Execute(Node *process){
+void printProcessInfo(Node *process) {
     printf("\n* Process To Execute: \n");
     printPCB(process->pcb);
 }
 
-void runProcess(Node *process,Simulation *simulation)
-{
-    // there are no ready processes
-    if(process == NULL){
+void runProcess(Node *process, Simulation *simulation) {
 
-        increaseClockTimes(simulation);
-        increaseIdleTime(simulation);
-        sleep(1);
+    // There is an active process
+    if (process != NULL) {
 
-    } else {//there is an active process
+        // Process info
+        printProcessInfo(process);
+
+        // Change process status to Active
         setState(process->pcb, ACTIVE);
-        process_To_Execute(process);
-        for (int i = 0; isProcessActived(process->pcb); i++) {
-            //if the simulation has quantum the process stops
-            if(simulation->quantum && i == (simulation->quantum - 1)){
-                if(isProcessActived(process->pcb)){
-                    setState(process->pcb, READY);
-                }
-                return;
-            }
+
+        // For each burst in the process
+        for (int i = 1; isProcessActive(process->pcb); i++) {
+
+            // Increment the clock times
             increaseClockTimes(simulation);
             setPCB_Burst(process, 1);
-            setExitTime(process->pcb, simulation->clockTimes);
-            sleep(1);
+
+            // Simulate the burst time
+            sleep(simulation->burstTime);
+
+            // If Round Robin and the quantum has been reached and the process is still active
+            if (simulation->algorithm == RR && i == simulation->quantum && isProcessActive(process->pcb)) {
+                setState(process->pcb, READY);
+            }
         }
+
+        // If the process has ended
+        if (isProcessEnded(process->pcb)) {
+            setExitTime(process->pcb, simulation->clockTimes);
+        }
+    }
+    // There are no ready processes
+    else {
+        // Increment the clock time and idle time
+        increaseClockTimes(simulation);
+        increaseIdleTime(simulation);
+
+        // Simulate the burst time
+        sleep(simulation->burstTime);
     }
 }
 
-Node* contextSwitch(Simulation *simulation)
-{
+Node* contextSwitch(Simulation *simulation) {
     Node *process = NULL;
     switch (simulation->algorithm){
 
@@ -161,15 +173,16 @@ Node* contextSwitch(Simulation *simulation)
             break;
 
         case RR:
-            process=searchNextProcessRR(simulation->processQueue);
+            process = searchNextProcessRR(simulation->processQueue);
             break;
 
         default:
             break;
     }
-    // cancels the process if it has finished
-    if(process != NULL && isProcessEnded(process->pcb))
+    // Cancels the process if it has finished
+    if (process != NULL && isProcessEnded(process->pcb))
         return NULL;
+
     return process;
 }
 
@@ -177,14 +190,21 @@ void *executePlanning(void *s)
 {
     Simulation *simulation = (Simulation*) s;
     Node *selectedProcess = NULL;
-    do{
-        while(isPaused(simulation)){
-            sleep(1);
-        }
+
+    // Waits until the Job Scheduler add the first process
+    while(isQueueEmpty(simulation->processQueue)) {
+        sleep(1);
+    }
+
+    do {
+        // The following process is selected
         selectedProcess = contextSwitch(simulation);
+
+        // And simulated
         runProcess(selectedProcess, simulation);
 
     } while(simulation->ended != 1);
+
     pthread_exit(NULL);
 }
 

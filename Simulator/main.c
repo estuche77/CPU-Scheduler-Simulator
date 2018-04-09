@@ -16,28 +16,25 @@ int main() {
     do {
         printf("\n**************MENU****************\n");
         printf("*                                *\n");
-        printf("* 1) Configure port              *\n");
-        printf("* 2) Select algorithm            *\n");
-        printf("* 3) Start simulation            *\n");
-        printf("* 4) Finish simulation           *\n");
+        printf("* 1) Select algorithm            *\n");
+        printf("* 2) Start simulation            *\n");
+        printf("* 3) Finish simulation           *\n");
         printf("*                                *\n");
         printf("**********************************\n");
         printf("*                                *\n");
         printf("* --> Type your option: ");
         scanf("%d", &(option));
         while(getchar() != '\n');
-        switch (option){
+        switch (option) {
             case 1:
-                break;
-            case 2:
                 types_of_Algorithms(simulation);
                 break;
-            case 3:
+            case 2:
                 JobScheduling(simulation, PORT);
                 CpuScheduling(simulation);
                 closing_menu(simulation);
                 break;
-            case 4:
+            case 3:
                 printf("\n*-----> closing simulation <-----*\n");
                 break;
             default:
@@ -46,6 +43,6 @@ int main() {
         }
     } while(option != 4);
 
-    pthread_exit(NULL);
+    exit(0);
 }
 

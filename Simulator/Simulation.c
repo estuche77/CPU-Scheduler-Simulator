@@ -18,6 +18,7 @@ Simulation *newSimulation(enum pAlgorithm algorithm) {
     s->algorithm = algorithm;
     s->clockTimes = 0;
     s->idleTime = 0;
+    s->burstTime = 1;
     s->quantum = 0;
     s->ended = 0;
     s->log = 0;
@@ -125,7 +126,7 @@ void generate_summary(Simulation *simulation)
 void closing_menu(Simulation *simulation)
 {
     int option = 0;
-    do{
+    do {
         printf("\n************ SUB MENU ************\n");
         printf("*                                *\n");
         printf("* 1) Print ready process         *\n");
@@ -136,7 +137,7 @@ void closing_menu(Simulation *simulation)
         printf("*--> Type your option: ");
         scanf("%d", &(option));
         while(getchar() != '\n');
-        switch (option){
+        switch (option) {
             case 1:
                 activatedLog(simulation); //active
                 print_Queued_Processes(simulation->processQueue);

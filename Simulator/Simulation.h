@@ -14,6 +14,7 @@ typedef struct Simulation {
     int log;
     int clockTimes;
     int idleTime;
+    unsigned int burstTime;
     int quantum;
     int ended;
     int pause;

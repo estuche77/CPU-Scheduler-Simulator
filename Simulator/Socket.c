@@ -77,9 +77,7 @@ void *startListening(void *v) {
             perror("accept");
             exit(EXIT_FAILURE);
         }
-        if(isPaused(server_socket->simulation)){
-            setPuase(server_socket->simulation);
-        }
+
         threadCommunication(new_socket);
     }
 
@@ -127,5 +125,5 @@ int insertNewPCB(char *message, Simulation *simulation) {
         values[i] = atoi(token);
         token = strtok(NULL, DIVIDER);
     }
-    return addPCBToQueue(simulation->processQueue, values[0], values[1], simulation->clockTimes);
+    return addToQueue(simulation->processQueue, values[0], values[1], simulation->clockTimes);
 }

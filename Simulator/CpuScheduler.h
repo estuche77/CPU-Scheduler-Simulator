@@ -21,7 +21,7 @@ Node* searchHighPriority(Queue *queue);
 Node* searchNextProcessRR(Queue *queue);
 /*_________________Planning________________________*/
 void setPCB_Burst(Node *process, int value);
-void process_To_Execute(Node *process);
+void printProcessInfo(Node *process);
 void runProcess(Node *process,struct Simulation *simulation);
 Node* contextSwitch(struct Simulation *simulation);
 void executePlanning(void *s);

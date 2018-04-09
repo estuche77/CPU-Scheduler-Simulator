@@ -14,7 +14,7 @@ PCB *newPCB(int pid,int burst, int priority,
     pcb->pid = pid;
     pcb->state = READY;
     pcb->burst = burst;
-    pcb->burstLeft = pcb->burst;
+    pcb->burstLeft = burst;
     pcb->priority = priority;
     pcb->arrival_time = arrival_time;
     pcb->exit_time = 0;
@@ -28,7 +28,7 @@ int isProcessEnded(PCB *process){
     return process->state == ENDED;
 }
 
-int isProcessActived(PCB *process){
+int isProcessActive(PCB *process){
     return process->state == ACTIVE;
 }
 
