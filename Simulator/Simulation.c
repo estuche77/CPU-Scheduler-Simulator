@@ -21,7 +21,7 @@ Simulation *newSimulation(enum pAlgorithm algorithm) {
     s->quantum = 0;
     s->ended = 0;
     s->log = 0;
-    
+    s->pause=1;
     return s;
 }
 
@@ -154,5 +154,11 @@ void closing_menu(Simulation *simulation)
     } while(!simulation->ended);
 
     generate_summary(simulation);
+}
+int isPaused(Simulation *simulation){
+    return simulation->pause;
+}
+void setPuase(Simulation *simulation){
+    simulation->pause=!simulation->pause;
 }
 

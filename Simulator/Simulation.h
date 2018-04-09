@@ -16,6 +16,7 @@ typedef struct Simulation {
     int idleTime;
     int quantum;
     int ended;
+    int pause;
 } Simulation;
 
 Simulation *newSimulation(enum pAlgorithm algorithm);
@@ -26,4 +27,6 @@ void increaseIdleTime(Simulation *simulation);
 void increaseClockTimes(Simulation *simulation);
 void printSummary(Simulation *simulation);
 void generate_summary(Simulation *simulation);
+int isPaused(Simulation *simulation);
+void setPuase(Simulation *simulation);
 #endif //SIMULATOR_SIMULATION_H

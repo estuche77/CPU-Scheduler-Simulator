@@ -77,6 +77,9 @@ void *startListening(void *v) {
             perror("accept");
             exit(EXIT_FAILURE);
         }
+        if(isPaused(server_socket->simulation)){
+            setPuase(server_socket->simulation);
+        }
         threadCommunication(new_socket);
     }
 
