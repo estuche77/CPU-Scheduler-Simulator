@@ -9,7 +9,6 @@
 #include <unistd.h>
 #include <pthread.h>
 
-void subMenu(Message *m);
 void setDataMessages(Message *m);
 
 int main() {
@@ -38,12 +37,12 @@ int main() {
         switch (option) {
             case 1:
                 startMessageControl(m, MANUAL);
-                subMenu(m);
+                //subMenu(m);
                 break;
             case 2:
                 setDataMessages(m);
                 startMessageControl(m, AUTOMATIC);
-                subMenu(m);
+                //subMenu(m);
                 break;
             case 3:
                 m->active = 0;
@@ -56,22 +55,6 @@ int main() {
     } while(m->active);
 
     pthread_exit(NULL);
-}
-
-void subMenu(Message *m){
-    char option = 'n';
-    do{
-        scanf("%c", &(option));
-        while(getchar() != '\n');
-        switch (option) {
-            case 's':
-                m->active = 0;
-                break;
-
-            default:
-                break;
-        }
-    } while(option != 's');
 }
 
 void setDataMessages(Message *m) {

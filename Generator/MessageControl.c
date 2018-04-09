@@ -80,6 +80,11 @@ void *manualControl(void *v) {
         sleep(interval);
     }
 
+    // If the End Of File
+    if (feof(file)) {
+        printf("File read completed\n");
+    }
+
     // Safety close the file
     fclose(file);
 
