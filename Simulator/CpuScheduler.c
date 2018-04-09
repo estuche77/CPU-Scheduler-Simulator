@@ -178,6 +178,9 @@ void *executePlanning(void *s)
     Simulation *simulation = (Simulation*) s;
     Node *selectedProcess = NULL;
     do{
+        while(isPaused(simulation)){
+            sleep(1);
+        }
         selectedProcess = contextSwitch(simulation);
         runProcess(selectedProcess, simulation);
 
