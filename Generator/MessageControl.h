@@ -5,8 +5,6 @@
 #ifndef GENERATOR_FILECONTROL_H
 #define GENERATOR_FILECONTROL_H
 
-#include <bits/types/FILE.h>
-
 #define LOWERCREATE 3
 #define HIGHCREATE 8
 
@@ -23,17 +21,16 @@ typedef struct message{
     int lowerBurst;
     int highBurst;
     int active;
-    int port;
+    unsigned short port;
     char * host;
-}Message;
+} Message;
 
 Message *newMessage();
 void  manualMessage(Message *m, char *di);
 
-
 void automaticControl(Message *m);
 void manualControl(Message *m);
-void *automaticalMessage(void *m);
-void sendMEssage(char * str, Message *m);
+void *automaticMessage(void *m);
+void sendMessage(char *str, Message *m);
 char* generateMessage();
 #endif //GENERATOR_FILECONTROL_H

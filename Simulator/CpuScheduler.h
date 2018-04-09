@@ -7,7 +7,7 @@
 #include "PQueue.h"
 #include "Simulation.h"
 
-Node* firstReadyProccess(Node *current);
+Node* firstReadyProcess(Node *current);
 /*_______________FIFO___________________*/
 Node* getLowerPID(Node *current,Node *lower);
 Node* searchLowerPID(Queue *queue);

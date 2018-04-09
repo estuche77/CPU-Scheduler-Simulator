@@ -9,49 +9,49 @@
 PCB *newPCB(int pid,int burst, int priority,
             int arrival_time){
 
-    PCB *pcb=(PCB*)malloc(sizeof(PCB));
+    PCB *pcb = (PCB*)malloc(sizeof(PCB));
 
-    pcb->pid=pid;
-    pcb->state=READY;
-    pcb->burst=burst;
-    pcb->burstLeft=pcb->burst;
-    pcb->priority=priority;
-    pcb->arrival_time=arrival_time;
-    pcb->exit_time=0;
-    pcb->tat=0;
-    pcb->wt=0;
+    pcb->pid = pid;
+    pcb->state = READY;
+    pcb->burst = burst;
+    pcb->burstLeft = pcb->burst;
+    pcb->priority = priority;
+    pcb->arrival_time = arrival_time;
+    pcb->exit_time = 0;
+    pcb->tat = 0;
+    pcb->wt = 0;
 
     return pcb;
 }
 
 int isProcessEnded(PCB *process){
-    return process->state==ENDED;
+    return process->state == ENDED;
 }
 
 int isProcessActived(PCB *process){
-    return process->state==ACTIVE;
+    return process->state == ACTIVE;
 }
 
 int isProcessReady(PCB *process){
-    return process->state==READY;
+    return process->state == READY;
 }
 
-int setState(PCB *process,enum pState state){
-    process->state=state;
+int setState(PCB *process, enum pState state){
+    process->state = state;
 }
 
 int setExitTime(PCB *process,int time){
     if(isProcessEnded(process)){
-        process->exit_time=time;
+        process->exit_time = time;
     }
 }
 
 void calculate_TAT(PCB *pcb){
-    pcb->tat=pcb->exit_time-pcb->arrival_time;
+    pcb->tat = pcb->exit_time - pcb->arrival_time;
 }
 
 void calculate_WT(PCB *pcb){
-    pcb->wt=pcb->tat-pcb->burst;
+    pcb->wt = pcb->tat - pcb->burst;
 }
 
 void printPCB(PCB *pcb){

@@ -12,53 +12,53 @@
 void subMenu(Message *m);
 
 void subMenu(Message *m){
-    char option='n';
+    char option = 'n';
     do{
-        scanf("%c",&(option));
-        while(getchar()!='\n');
-        switch (option){
+        scanf("%c", &(option));
+        while(getchar() != '\n');
+        switch (option) {
             case 's':
-                m->active=0;
+                m->active = 0;
+                break;
+
+            default:
                 break;
         }
-    }while(option!='s');
+    } while(option != 's');
 }
 
 int main() {
-    Message *m=newMessage();
-    int option=0;
+    Message *m = newMessage();
+    int option = 0;
     do {
         printf("\n**************MENU****************\n");
         printf("*                                *\n");
-        printf("* 1) Configuration               *\n");
-        printf("* 2) Manual control              *\n");
-        printf("* 3) Automatic control           *\n");
-        printf("* 4) Finish                      *\n");
+        printf("* 1) Manual control              *\n");
+        printf("* 2) Automatic control           *\n");
+        printf("* 3) Finish                      *\n");
         printf("*                                *\n");
         printf("**********************************\n");
         printf("*                                *\n");
         printf("* --> Type your option: ");
-        scanf("%d",&(option));
-        while(getchar()!='\n');
-        switch (option){
+        scanf("%d", &(option));
+        while(getchar() != '\n');
+        switch (option) {
             case 1:
-                break;
-            case 2:
                 manualControl(m);
                 break;
-            case 3:
+            case 2:
                 automaticControl(m);
                 subMenu(m);
                 break;
-            case 4:
-                m->active=0;
-                printf("\n*-----> closing simulation <-----*\n");
+            case 3:
+                m->active = 0;
+                printf("\n*-----> Closing simulation <-----*\n");
                 break;
             default:
                 printf("\n*-------> Invalid option <-------*\n");
                 break;
         }
-    }while(m->active);
+    } while(m->active);
     pthread_exit(NULL);
 
 }

@@ -9,7 +9,7 @@
 
 int main() {
     Simulation *simulation = newSimulation(FIFO);
-    int option=0;
+    int option = 0;
     do {
         printf("\n**************MENU****************\n");
         printf("*                                *\n");
@@ -22,7 +22,7 @@ int main() {
         printf("*                                *\n");
         printf("* --> Type your option: ");
         scanf("%d",&(option));
-        while(getchar()!='\n');
+        while(getchar() != '\n');
         switch (option){
             case 1:
                 break;
@@ -41,7 +41,8 @@ int main() {
                 printf("\n*-------> Invalid option <-------*\n");
                 break;
         }
-    }while(option!=4);
+    } while(option != 4);
+
     pthread_exit(NULL);
 }
 

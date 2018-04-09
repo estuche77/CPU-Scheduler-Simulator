@@ -12,16 +12,16 @@
 
 /*looks for the next process ready in
  *the queue, can be the same input node*/
-Node* firstReadyProccess(Node *current)
+Node* firstReadyProcess(Node *current)
 {
-    Node *temp=current;
+    Node *temp = current;
     while(temp != NULL ){
         if(isProcessReady(temp->pcb)){
             return temp;
         }
-        temp=temp->next;
+        temp = temp->next;
     }
-    if(temp != NULL && isProcessEnded(temp->pcb)){
+    if(isProcessEnded(temp->pcb)){
         return NULL;
     }
     return temp;
@@ -36,14 +36,14 @@ Node* getLowerPID(Node *current, Node *lower)
 }
 Node* searchLowerPID(Queue *queue)
 {
-    Node *temp=queue->first;
+    Node *temp = queue->first;
     while(temp != NULL && isProcessEnded(temp->pcb)){
-        temp=temp->next;
+        temp = temp->next;
     }
     return temp;
 }
 /*_______________SJF___________________*/
-Node* getLowerBurst(Node *current,Node *lower)
+Node* getLowerBurst(Node *current, Node *lower)
 {
     if(current->pcb->burstLeft == lower->pcb->burstLeft){
         return getLowerPID(current, lower);
@@ -55,19 +55,19 @@ Node* getLowerBurst(Node *current,Node *lower)
 }
 Node* searchLowerBurst(Queue *queue)
 {
-    Node *temp=firstReadyProccess(queue->first);
-    Node *lower=temp;
-    while(temp != NULL ){
-        if(isProcessReady(temp->pcb)){
-            lower=getLowerBurst(temp,lower);
+    Node *temp = firstReadyProcess(queue->first);
+    Node *lower = temp;
+    while (temp != NULL ) {
+        if (isProcessReady(temp->pcb)) {
+            lower = getLowerBurst(temp, lower);
         }
-        temp=temp->next;
+        temp = temp->next;
     }
 
     return lower;
 }
 /*_______________HPF___________________*/
-Node* getHighPriority(Node *current,Node *lower)
+Node* getHighPriority(Node *current, Node *lower)
 {
     if(current->pcb->priority == lower->pcb->priority){
         return getLowerPID(current, lower);
@@ -79,13 +79,13 @@ Node* getHighPriority(Node *current,Node *lower)
 }
 Node* searchHighPriority(Queue *queue)
 {
-    Node *temp=firstReadyProccess(queue->first);
-    Node *lower=temp;
-    while(temp != NULL ){
-        if(isProcessReady(temp->pcb)){
-            lower=getHighPriority(temp,lower);
+    Node *temp = firstReadyProcess(queue->first);
+    Node *lower = temp;
+    while (temp != NULL ) {
+        if (isProcessReady(temp->pcb)) {
+            lower = getHighPriority(temp, lower);
         }
-        temp=temp->next;
+        temp = temp->next;
     }
     return lower;
 }
@@ -95,7 +95,7 @@ Node* searchNextProcessRR(Queue *queue)
     Node *temp;
     /*update the current node to the next ready process in
      * the queue, it can be the same input node*/
-    queue->current=firstReadyProccess(queue->current);
+    queue->current= firstReadyProcess(queue->current);
     temp=queue->current;
     nextNode(queue);
     return temp;
@@ -118,34 +118,34 @@ void process_To_Execute(Node *process){
 void runProcess(Node *process,Simulation *simulation)
 {
     // there are no ready processes
-    if(process==NULL){
+    if(process == NULL){
 
         increaseClockTimes(simulation);
         increaseIdleTime(simulation);
         sleep(1);
 
-    } else{//there is an active process
-        setState(process->pcb,ACTIVE);
+    } else {//there is an active process
+        setState(process->pcb, ACTIVE);
         process_To_Execute(process);
-        for(int i=0;isProcessActived(process->pcb);i++){
+        for (int i = 0; isProcessActived(process->pcb); i++) {
             //if the simulation has quantum the process stops
-            if(simulation->quantum && i == (simulation->quantum-1)){
+            if(simulation->quantum && i == (simulation->quantum - 1)){
                 if(isProcessActived(process->pcb)){
-                    setState(process->pcb,READY);
+                    setState(process->pcb, READY);
                 }
                 return;
             }
             increaseClockTimes(simulation);
             setPCB_Burst(process, 1);
-            setExitTime(process->pcb,simulation->clockTimes);
+            setExitTime(process->pcb, simulation->clockTimes);
             sleep(1);
-
         }
     }
 }
+
 Node* contextSwitch(Simulation *simulation)
 {
-    Node *process=NULL;
+    Node *process = NULL;
     switch (simulation->algorithm){
 
         case FIFO:
@@ -168,21 +168,23 @@ Node* contextSwitch(Simulation *simulation)
             break;
     }
     // cancels the process if it has finished
-    if(process!=NULL && isProcessEnded(process->pcb))
+    if(process != NULL && isProcessEnded(process->pcb))
         return NULL;
     return process;
 }
+
 void *executePlanning(void *s)
 {
-    Simulation *simulation=(Simulation*) s;
-    Node *selectedProcess=NULL;
+    Simulation *simulation = (Simulation*) s;
+    Node *selectedProcess = NULL;
     do{
-        selectedProcess=contextSwitch(simulation);
-        runProcess(selectedProcess,simulation);
+        selectedProcess = contextSwitch(simulation);
+        runProcess(selectedProcess, simulation);
 
-    }while(simulation->ended!=1);
+    } while(simulation->ended != 1);
     pthread_exit(NULL);
 }
+
 void CpuScheduling(Simulation *simulation) {
     pthread_t schedulerThread;
     int result;
