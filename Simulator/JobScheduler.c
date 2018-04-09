@@ -18,7 +18,7 @@ void JobScheduling(Simulation *simulation, unsigned short port) {
     }
 
     // New struct with socketID id and process queue
-    Socket *server_socket = newSocket(simulation,sock);
+    Socket *server_socket = newSocket(simulation, sock);
     activateListen(server_socket);
 }
 
@@ -34,8 +34,3 @@ void activateListen(Socket *server_socket){
         exit(-1);
     }
 }
-
-
-
-
-

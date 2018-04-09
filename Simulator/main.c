@@ -8,8 +8,11 @@
 #define PORT 8080
 
 int main() {
+
     Simulation *simulation = newSimulation(FIFO);
+
     int option = 0;
+
     do {
         printf("\n**************MENU****************\n");
         printf("*                                *\n");
@@ -21,7 +24,7 @@ int main() {
         printf("**********************************\n");
         printf("*                                *\n");
         printf("* --> Type your option: ");
-        scanf("%d",&(option));
+        scanf("%d", &(option));
         while(getchar() != '\n');
         switch (option){
             case 1:

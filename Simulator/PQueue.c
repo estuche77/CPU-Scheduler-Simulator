@@ -39,7 +39,7 @@ int addToQueue(Queue *queue, int burst, int priority) {
     return node->pcb->pid;
 }
 
-int addPCBToQueue(Queue *queue, int burst, int priority,int time){
+int addPCBToQueue(Queue *queue, int burst, int priority, int time){
     Node *node = malloc(sizeof(Node));
     PCB *pcb = newPCB(0,burst,priority, time);
     pcb->pid = queue->counter++;
@@ -58,7 +58,7 @@ int addPCBToQueue(Queue *queue, int burst, int priority,int time){
 }
 
 int isQueueEmpty(Queue * queue){
-    return queue->first==NULL && queue->last==NULL;
+    return queue->first == NULL && queue->last == NULL;
 }
 
 void nextNode(Queue * queue)
@@ -85,14 +85,3 @@ void print_Queued_Processes(Queue *queue)
         temp=temp->next;
     }
 }
-void printQueue(Queue *queue) {
-    Node *tmp = queue->first;
-
-    while (tmp != NULL) {
-        printf("%d - ", tmp->pcb->pid);
-        tmp = tmp->next;
-    }
-    printf("\n");
-}
-
-

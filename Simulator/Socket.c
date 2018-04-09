@@ -70,18 +70,19 @@ void *startListening(void *v) {
         // New struct with socketID id and process queue
         Socket *new_socket = newSocket(server_socket->simulation,0);
         new_socket->socketID = accept(server_socket->socketID, &server_address, (socklen_t*)&addressLength);
+
         // Keeps waiting for an incoming connection
         if (new_socket->socketID < 0)
         {
             perror("accept");
             exit(EXIT_FAILURE);
         }
-        threadComunication(new_socket);
+        threadCommunication(new_socket);
     }
 
 }
 
-void threadComunication(Socket *new_socket){
+void threadCommunication(Socket *new_socket){
     pthread_t communication;
     int result;
 
@@ -100,30 +101,28 @@ void *startCommunication(void *v) {
     // The data is fetched
     char buffer[40] = {0};
     read(socket->socketID, buffer, 40);
-    //printf("%s\n", buffer);
 
-    // Here the data should be analyzed and inserted
-    int pid=insertNewPCB(buffer,socket->simulation);
-    // And pid is converted to string
+    // Here the data is analyzed and inserted
+    int pid = insertNewPCB(buffer, socket->simulation);
+
+    // PID is converted to string
     char *str_pid = intToString(pid);
 
     // After inserting the new process, the assigned pid is sent
     send(socket->socketID, str_pid, sizeof(str_pid), 0);
-    //printf("Assigned PID: %s\n", str_pid);
 
     // Close the socketID and exits the thread
     close(socket->socketID);
     pthread_exit(NULL);
 }
 
-int insertNewPCB(char *message,Simulation *simulation){
+int insertNewPCB(char *message, Simulation *simulation) {
 
     int values[2];
-    char *token=strtok(message,DIVIDER);
-    for(int i=0;token!=NULL;i++){
-        values[i]=atoi(token);
+    char *token = strtok(message,DIVIDER);
+    for(int i = 0; token != NULL; i++) {
+        values[i] = atoi(token);
         token = strtok(NULL, DIVIDER);
     }
-    return addPCBToQueue(simulation->processQueue,
-                         values[0],values[1],simulation->clockTimes);
+    return addPCBToQueue(simulation->processQueue, values[0], values[1], simulation->clockTimes);
 }

@@ -18,6 +18,6 @@ Socket* newSocket(Simulation *simulation, int id);
 int configureSocket(unsigned short port);
 void *startListening(void *v);
 void *startCommunication(void *v);
-void threadComunication(Socket *new_socket);
+void threadCommunication(Socket *new_socket);
 int insertNewPCB(char *message,Simulation *simulation);
 #endif //SIMULATOR_SOCKET_H
