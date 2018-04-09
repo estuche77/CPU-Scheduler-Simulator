@@ -5,6 +5,8 @@
 #ifndef GENERATOR_FILECONTROL_H
 #define GENERATOR_FILECONTROL_H
 
+#include "Process.h"
+
 #define LOWERCREATE 3
 #define HIGHCREATE 8
 
@@ -15,22 +17,27 @@
 #define PORT 8080
 #define HOST "127.0.0.1"
 
+enum generationType {AUTOMATIC, MANUAL};
+
 typedef struct message{
+    int lowerPriority;
+    int highPriority;
     int lowerCreate;
     int highCreate;
     int lowerBurst;
     int highBurst;
     int active;
     unsigned short port;
-    char * host;
+    char *host;
+    char *directory;
 } Message;
 
 Message *newMessage();
-void  manualMessage(Message *m, char *di);
 
-void automaticControl(Message *m);
-void manualControl(Message *m);
-void *automaticMessage(void *m);
+void startMessageControl(Message * m, enum generationType type);
+void *manualControl(void *v);
+void *automaticControl(void *v);
 void sendMessage(char *str, Message *m);
-char* generateMessage();
+Process *generateRandomProcess(Message *m);
+
 #endif //GENERATOR_FILECONTROL_H

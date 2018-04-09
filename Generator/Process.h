@@ -5,6 +5,7 @@
 #ifndef GENERATOR_PROCESS_H
 #define GENERATOR_PROCESS_H
 #define DIVIDER "\t"
+
 typedef struct Process {
     int burst;
     int priority;

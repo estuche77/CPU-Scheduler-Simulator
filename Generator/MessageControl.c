@@ -6,112 +6,122 @@
 #include <string.h>
 #include <dirent.h>
 #include <pthread.h>
+#include <zconf.h>
 #include "MessageControl.h"
 #include "Utils.h"
 #include "Process.h"
-#include "unistd.h"
 #include "Socket.h"
 
-Message *newMessage(){
+Message *newMessage() {
     Message *m = (Message*)malloc(sizeof(Message));
+
+    m->lowerPriority = LOWERPRIORITY;
+    m->highPriority = HIGHPRIORITY;
     m->lowerCreate = LOWERCREATE;
     m->highCreate = HIGHCREATE;
-    m->highBurst = HIGHBURST;
     m->lowerBurst = LOWERBURST;
+    m->highBurst = HIGHBURST;
+    m->active = 1;
     m->port = PORT;
     m->host = HOST;
-    m->active = 1;
+    m->directory = "data.txt";
     return m;
 }
-void manualMessage(Message *m, char *dir){
-    FILE *file;
-    int interval;
-    char line[20];
-    file = fopen(dir, "r");
 
-    if(file == NULL){
-        puts("there is no file /home/.../Documentos/scheduler_Files/data.txt");
-        return;
+// This functions decides which thread is going to be executed
+void startMessageControl(Message * m, enum generationType type) {
+    pthread_t messageControl;
+    int result = 0;
+
+    if (type == AUTOMATIC) {
+        result = pthread_create(&messageControl, NULL, automaticControl, (void *)m);
     }
-
-    // Instruction used to initialize the random seed
-    srand((unsigned int) time(NULL));
-
-    for(int i = 0; !feof(file); i++){
-        fgets(line, 20, file);
-        if(i > 0){
-            strcpy(line, strtok(line, "\n"));
-            sendMessage(line, m);
-            interval = randIntBetween(m->lowerCreate, m->highCreate);
-            sleep(interval);
-        }
+    else if (type == MANUAL) {
+        result = pthread_create(&messageControl, NULL, manualControl, (void *)m);
     }
-
-    fclose(file);
-}
-
-void manualControl(Message *m){
-    char *dir="/home/shake/Documentos/scheduler_Files/data.txt";
-    manualMessage(m, dir);
-}
-
-void setDataMessages(Message *m){
-    printf("* --> Type the creation range:\n* --> Lower: ");
-    scanf("%d",&( m->lowerCreate));
-    while(getchar()!='\n');
-    printf("* --> High: ");
-    scanf("%d",&(m->highCreate));
-    while(getchar()!='\n');
-
-    printf("* --> Type the burst range: \n* --> Lower: ");
-    scanf("%d",&(m->lowerBurst));
-    while(getchar()!='\n');
-    printf("* --> High: ");
-    scanf("%d",&(m->highBurst));
-    while(getchar()!='\n');
-
-}
-void automaticControl(Message *m){
-    setDataMessages(m);
-    pthread_t listeningThread;
-    int result;
-
-    // Thread used for listen incoming connections
-    result = pthread_create(&listeningThread, NULL, automaticMessage, (void *) m);
 
     if (result) {
-        printf("ERROR; return code from pthread_create() is %d\n", result);
+        printf("Error creating message control thread; return code from pthread_create() is %d\n", result);
         exit(-1);
     }
 }
 
-void *automaticMessage(void *m){
-    Message *message=(Message*)m;
-    int interval;
-    // Instruction used to initialize the random seed
-    srand((unsigned int) time(NULL));
-    for(int i=0;i<5 && message->active;i++){
-        char *str= generateMessage();
-        sendMessage(str, message);
-        interval= randIntBetween(message->lowerCreate, message->highCreate);
+void *manualControl(void *v) {
+    Message *m = (Message *)v;
+
+    // Opening file
+    FILE *file;
+    file = fopen(m->directory, "r");
+
+    // If was not able to open it
+    if (file == NULL) {
+        printf("Error opening file: %s\n", m->directory);
+        return NULL;
+    }
+
+    char line[20];
+    unsigned int interval;
+
+    // Until end of file or generation not active
+    while (!feof(file) && m->active) {
+
+        // Get the current line
+        fgets(line, 20, file);
+
+        // Prepares the string and sent it
+        strcpy(line, strtok(line, "\n"));
+        sendMessage(line, m);
+
+        // Calculates a random interval to continue
+        interval = (unsigned int) randIntBetween(m->lowerCreate, m->highCreate);
+        printf("Waiting interval: %d\n", interval);
+
+        // And waits
         sleep(interval);
     }
+
+    // Safety close the file
+    fclose(file);
+
+    pthread_exit(NULL);
+}
+
+void *automaticControl(void *v) {
+    Message *m = (Message *)v;
+
+    unsigned int interval;
+    Process *process;
+
+    while (m->active) {
+
+        // Generate a random process
+        process = generateRandomProcess(m);
+
+        // Converts the process to string & sent it
+        char *str = toString(process);
+        sendMessage(str, m);
+
+        // Calculates a random interval to continue
+        interval = (unsigned int) randIntBetween(m->lowerCreate, m->highCreate);
+        printf("Waiting interval: %d\n", interval);
+
+        // And waits
+        sleep(interval);
+    }
+
     pthread_exit(NULL);
 }
 
 void sendMessage(char *str, Message *m) {
-    // Connection and communication
+    // Creates a new connection and starts the communication
     int socket = connectSocket(m->host, m->port);
     startCommunication(socket, str);
 }
 
-char* generateMessage() {
+Process *generateRandomProcess(Message *m) {
     // Random values
-    int randomBurst = randIntBetween(LOWERBURST, HIGHBURST);
-    int randomPriority = randIntBetween(HIGHPRIORITY, LOWERPRIORITY);
+    int randomBurst = randIntBetween(m->lowerBurst, m->highBurst);
+    int randomPriority = randIntBetween(m->highPriority, m->lowerPriority);
     // Process creation
-    Process *process = newProcess(randomBurst, randomPriority);
-    char *str = toString(process);
-    return str;
+    return newProcess(randomBurst, randomPriority);
 }
-
