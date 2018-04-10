@@ -22,7 +22,6 @@ Simulation *newSimulation(enum pAlgorithm algorithm) {
     s->quantum = 0;
     s->ended = 0;
     s->log = 0;
-    s->pause=1;
     return s;
 }
 
@@ -83,8 +82,9 @@ void types_of_Algorithms(Simulation *simulation)
 
 }
 
-void printSummary(Simulation *simulation)
-{
+void generate_summary(Simulation *simulation) {
+    printf("*-------> Generating summary <-------\n");
+
     int executed_Processes = 0;
     int TAT_Average = 0;
     int WT_Average = 0;
@@ -102,7 +102,7 @@ void printSummary(Simulation *simulation)
 
             printFinalPCB(temp->pcb);
         }
-        temp=temp->next;
+        temp = temp->next;
     }
     if(executed_Processes){
         TAT_Average = TAT_Average/executed_Processes;
@@ -113,24 +113,16 @@ void printSummary(Simulation *simulation)
     printf("* 2) Seconds with idle CPU:        %d\n", simulation->idleTime);
     printf("* 3) Average Turn Around Time:     %d\n", TAT_Average);
     printf("* 4) Average Waiting Time:         %d\n", WT_Average);
-
 }
 
-void generate_summary(Simulation *simulation)
-{
-    printf("*-------> generating summary <-------\n");
-
-    printSummary(simulation);
-}
-
-void closing_menu(Simulation *simulation)
-{
+void simulationMenu(Simulation *simulation) {
     int option = 0;
     do {
         printf("\n************ SUB MENU ************\n");
         printf("*                                *\n");
-        printf("* 1) Print ready process         *\n");
-        printf("* 2) Finish simulation           *\n");
+        printf("* 1) See log                     *\n");
+        printf("* 2) Print ready process         *\n");
+        printf("* 3) Finish simulation           *\n");
         printf("*                                *\n");
         printf("**********************************\n");
         printf("*                                *\n");
@@ -139,27 +131,23 @@ void closing_menu(Simulation *simulation)
         while(getchar() != '\n');
         switch (option) {
             case 1:
-                activatedLog(simulation); //active
-                print_Queued_Processes(simulation->processQueue);
-                activatedLog(simulation); //disable
+                printf("* Press any key to stop the log... \n");
+                activatedLog(simulation); // Activate log
+                getchar();
+                activatedLog(simulation); // Disable log
                 break;
-
             case 2:
+                print_Queued_Processes(simulation->processQueue);
+                break;
+            case 3:
                 simulation->ended = 1;
                 break;
 
             default:
-                printf("*           Invalid option       *\n");
+                printf("\n*-------> Invalid option <-------*\n");
                 break;
         }
     } while(!simulation->ended);
 
     generate_summary(simulation);
 }
-int isPaused(Simulation *simulation){
-    return simulation->pause;
-}
-void setPuase(Simulation *simulation){
-    simulation->pause=!simulation->pause;
-}
-

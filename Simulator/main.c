@@ -32,7 +32,7 @@ int main() {
             case 2:
                 JobScheduling(simulation, PORT);
                 CpuScheduling(simulation);
-                closing_menu(simulation);
+                simulationMenu(simulation);
                 break;
             case 3:
                 printf("\n*-----> closing simulation <-----*\n");

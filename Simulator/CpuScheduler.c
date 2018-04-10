@@ -90,8 +90,8 @@ Node* searchHighPriority(Queue *queue)
 Node* searchNextProcessRR(Queue *queue)
 {
     Node *temp;
-    /*update the current node to the next ready process in
-     * the queue, it can be the same input node*/
+    /* update the current node to the next ready process
+     * in the queue, it can be the same input node */
     queue->current = firstReadyProcess(queue->current);
     temp = queue->current;
     nextNode(queue);
@@ -108,9 +108,11 @@ void setPCB_Burst(Node *process, int value)
     }
 }
 
-void printProcessInfo(Node *process) {
-    printf("\n* Process To Execute: \n");
-    printPCB(process->pcb);
+void printProcessInfo(int log, Node *process) {
+    if (log) {
+        printf("\n* Process To Execute: \n");
+        printPCB(process->pcb);
+    }
 }
 
 void runProcess(Node *process, Simulation *simulation) {
@@ -119,7 +121,7 @@ void runProcess(Node *process, Simulation *simulation) {
     if (process != NULL) {
 
         // Process info
-        printProcessInfo(process);
+        printProcessInfo(simulation->log, process);
 
         // Change process status to Active
         setState(process->pcb, ACTIVE);
