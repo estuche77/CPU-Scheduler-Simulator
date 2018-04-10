@@ -41,7 +41,7 @@ int main() {
                 printf("\n*-------> Invalid option <-------*\n");
                 break;
         }
-    } while(option != 4);
+    } while(option != 3);
 
     exit(0);
 }
