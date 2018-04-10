@@ -15,12 +15,12 @@
 Message *newMessage() {
     Message *m = (Message*)malloc(sizeof(Message));
 
-    m->lowerPriority = LOWERPRIORITY;
-    m->highPriority = HIGHPRIORITY;
-    m->lowerCreate = LOWERCREATE;
-    m->highCreate = HIGHCREATE;
-    m->lowerBurst = LOWERBURST;
-    m->highBurst = HIGHBURST;
+    m->lowerPriority = LOWER_PRIORITY;
+    m->highPriority = HIGH_PRIORITY;
+    m->lowerCreate = LOWER_CREATE;
+    m->highCreate = HIGH_CREATE;
+    m->lowerBurst = LOWER_BURST;
+    m->highBurst = HIGH_BURST;
     m->active = 1;
     m->port = PORT;
     m->host = HOST;
