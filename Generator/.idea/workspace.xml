@@ -14,10 +14,6 @@
     <list default="true" id="8f2a4dd3-467b-454c-b0b8-4fbc73711220" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../Simulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulator/CpuScheduler.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/CpuScheduler.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulator/CpuScheduler.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/CpuScheduler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulator/Simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/Simulation.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulator/Simulation.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/Simulation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulator/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/main.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -191,7 +187,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113324000" />
+    <option name="totallyTimeSpent" value="113926000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -204,6 +200,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-4" width="1368" height="773" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15959005" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.075785585" />

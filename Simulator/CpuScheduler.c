@@ -12,8 +12,7 @@
 
 /*looks for the next process ready in
  *the queue, can be the same input node*/
-Node* firstReadyProcess(Node *current)
-{
+Node* firstReadyProcess(Node *current) {
     Node *temp = current;
     while (temp != NULL ) {
         if(isProcessReady(temp->pcb)) {
@@ -23,25 +22,25 @@ Node* firstReadyProcess(Node *current)
     }
     return temp;
 }
+
 /*_______________FIFO___________________*/
-Node* getLowerPID(Node *current, Node *lower)
-{
+Node* getLowerPID(Node *current, Node *lower) {
     if(current->pcb->pid < lower->pcb->pid){
         return current;
     }
     return lower;
 }
-Node* searchLowerPID(Queue *queue)
-{
+
+Node* searchLowerPID(Queue *queue) {
     Node *temp = queue->first;
     while(temp != NULL && isProcessEnded(temp->pcb)){
         temp = temp->next;
     }
     return temp;
 }
+
 /*_______________SJF___________________*/
-Node* getLowerBurst(Node *current, Node *lower)
-{
+Node* getLowerBurst(Node *current, Node *lower) {
     if(current->pcb->burstLeft == lower->pcb->burstLeft){
         return getLowerPID(current, lower);
     }
@@ -50,8 +49,8 @@ Node* getLowerBurst(Node *current, Node *lower)
     }
     return lower;
 }
-Node* searchLowerBurst(Queue *queue)
-{
+
+Node* searchLowerBurst(Queue *queue) {
     Node *temp = firstReadyProcess(queue->first);
     Node *lower = temp;
     while (temp != NULL ) {
@@ -63,9 +62,9 @@ Node* searchLowerBurst(Queue *queue)
 
     return lower;
 }
+
 /*_______________HPF___________________*/
-Node* getHighPriority(Node *current, Node *lower)
-{
+Node* getHighPriority(Node *current, Node *lower) {
     if(current->pcb->priority == lower->pcb->priority){
         return getLowerPID(current, lower);
     }
@@ -74,8 +73,8 @@ Node* getHighPriority(Node *current, Node *lower)
     }
     return lower;
 }
-Node* searchHighPriority(Queue *queue)
-{
+
+Node* searchHighPriority(Queue *queue) {
     Node *temp = firstReadyProcess(queue->first);
     Node *lower = temp;
     while (temp != NULL ) {
@@ -86,20 +85,18 @@ Node* searchHighPriority(Queue *queue)
     }
     return lower;
 }
+
 /*_______________RR___________________*/
-Node* searchNextProcessRR(Queue *queue)
-{
-    Node *temp;
+Node* searchNextProcessRR(Queue *queue) {
+    nextNode(queue);
     /* update the current node to the next ready process
      * in the queue, it can be the same input node */
     queue->current = firstReadyProcess(queue->current);
-    temp = queue->current;
-    nextNode(queue);
-    return temp;
+    return queue->current;
 }
+
 /*_________________Planning________________________*/
-void setPCB_Burst(Node *process, int value)
-{
+void setPCB_Burst(Node *process, int value) {
     process->pcb->burstLeft -= value;
 
     if(process->pcb->burstLeft <= 0) {
