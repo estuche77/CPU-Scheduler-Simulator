@@ -14,15 +14,15 @@ typedef struct Simulation {
     int log;
     int clockTimes;
     int idleTime;
+    unsigned int burstTime;
     int quantum;
     int ended;
-    int pause;
 } Simulation;
 
 Simulation *newSimulation(enum pAlgorithm algorithm);
 void activatedLog(Simulation *simulation);
 void types_of_Algorithms(Simulation *simulation);
-void closing_menu(Simulation *simulation);
+void simulationMenu(Simulation *simulation);
 void increaseIdleTime(Simulation *simulation);
 void increaseClockTimes(Simulation *simulation);
 void printSummary(Simulation *simulation);
