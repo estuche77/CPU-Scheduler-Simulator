@@ -7,13 +7,12 @@
 
 #include "Process.h"
 
-#define LOWERCREATE 3
-#define HIGHCREATE 8
-
-#define LOWERBURST 3
-#define HIGHBURST 8
-#define LOWERPRIORITY 5
-#define HIGHPRIORITY 1
+#define LOWER_CREATE 3
+#define HIGH_CREATE 8
+#define LOWER_BURST 3
+#define HIGH_BURST 8
+#define LOWER_PRIORITY 5
+#define HIGH_PRIORITY 1
 #define PORT 8080
 #define HOST "127.0.0.1"
 

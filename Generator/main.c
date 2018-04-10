@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <time.h>
+#include <unistd.h>
+#include <pthread.h>
 #include "Process.h"
 #include "Socket.h"
 #include "Utils.h"
 #include "MessageControl.h"
-#include <unistd.h>
-#include <pthread.h>
 
+void setAddress(Message *m);
 void setDataMessages(Message *m);
 
 int main() {
@@ -25,9 +26,10 @@ int main() {
     do {
         printf("\n**************MENU****************\n");
         printf("*                                *\n");
-        printf("* 1) Manual control              *\n");
-        printf("* 2) Automatic control           *\n");
-        printf("* 3) Finish                      *\n");
+        printf("* 1) Configure IP                *\n");
+        printf("* 2) Manual control              *\n");
+        printf("* 3) Automatic control           *\n");
+        printf("* 4) Finish                      *\n");
         printf("*                                *\n");
         printf("**********************************\n");
         printf("*                                *\n");
@@ -36,15 +38,16 @@ int main() {
         while(getchar() != '\n');
         switch (option) {
             case 1:
-                startMessageControl(m, MANUAL);
-                //subMenu(m);
+                setAddress(m);
                 break;
             case 2:
-                setDataMessages(m);
-                startMessageControl(m, AUTOMATIC);
-                //subMenu(m);
+                startMessageControl(m, MANUAL);
                 break;
             case 3:
+                setDataMessages(m);
+                startMessageControl(m, AUTOMATIC);
+                break;
+            case 4:
                 m->active = 0;
                 printf("\n*-----> Closing simulation <-----*\n");
                 break;
@@ -55,6 +58,16 @@ int main() {
     } while(m->active);
 
     pthread_exit(NULL);
+}
+
+void setAddress(Message *m) {
+    char *address = malloc(15);
+    printf("* --> IP: ");
+    fgets(address, 16, stdin);
+    while(getchar()!='\n');
+    printf("* --> Port: ");
+    scanf("%d",&(m->port));
+    while(getchar()!='\n');
 }
 
 void setDataMessages(Message *m) {
