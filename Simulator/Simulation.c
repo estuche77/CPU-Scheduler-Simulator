@@ -43,7 +43,7 @@ void increaseClockTimes(Simulation *simulation)
 void types_of_Algorithms(Simulation *simulation)
 {
     int option = 0;
-    do{
+    do {
         printf("\n************Algorithms************\n");
         printf("*                                *\n");
         printf("* 1) FIFO                        *\n");
@@ -110,7 +110,7 @@ void generate_summary(Simulation *simulation) {
     }
 
     printf("\n* 1) Number of processes executed: %d\n", executed_Processes);
-    printf("* 2) Seconds with idle CPU:        %d\n", simulation->idleTime);
+    printf("* 2) Idle CPU Time:        %d\n", simulation->idleTime);
     printf("* 3) Average Turn Around Time:     %d\n", TAT_Average);
     printf("* 4) Average Waiting Time:         %d\n", WT_Average);
 }
