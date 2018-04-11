@@ -8,7 +8,7 @@
 #include "Socket.h"
 #include "Utils.h"
 #include "MessageControl.h"
-
+#include <string.h>
 void setAddress(Message *m);
 void setFilePath(Message *m);
 void setDataMessages(Message *m);
@@ -63,8 +63,10 @@ int main() {
 }
 
 void setAddress(Message *m) {
+    char* ip=(char*)malloc(16);
     printf("* --> IP: ");
-    fgets(m->host, 16, stdin);
+    fgets(ip, 16, stdin);
+    m->host=ip;
     printf("* --> Port: ");
     scanf("%hu",&(m->port));
     while(getchar()!='\n');
@@ -72,6 +74,7 @@ void setAddress(Message *m) {
 
 void setFilePath(Message *m) {
     int option = 0;
+    char* p=(char*)malloc(64);
     do {
         printf("\n************Manual****************\n");
         printf("*                                *\n");
@@ -85,8 +88,11 @@ void setFilePath(Message *m) {
         while (getchar() != '\n');
         switch (option) {
             case 1:
+
                 printf("* --> File path: ");
-                fgets(m->directory, 64, stdin);
+                fgets(p, 64, stdin);
+                strcpy(p, strtok(p, "\n"));
+                m->directory=p;
                 break;
             case 2:
                 break;
