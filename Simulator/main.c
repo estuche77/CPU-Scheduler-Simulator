@@ -14,7 +14,7 @@ int main() {
     do {
         printf("\n**************MENU****************\n");
         printf("*                                *\n");
-        printf("* 1) Config port                 *\n");
+        printf("* 1) Setup port                  *\n");
         printf("* 2) Select algorithm            *\n");
         printf("* 3) Start simulation            *\n");
         printf("* 4) Finish simulation           *\n");
@@ -26,7 +26,7 @@ int main() {
         while(getchar() != '\n');
         switch (option) {
             case 1:
-                printf("* --> Type new port: ");
+                printf("* --> Type an available port: ");
                 scanf("%hu",&(simulation->port));
                 while(getchar()!='\n');
                 break;
@@ -39,13 +39,13 @@ int main() {
                 simulationMenu(simulation);
                 break;
             case 4:
-                printf("\n*-----> closing simulation <-----*\n");
+                printf("\n*-----> Closing simulation <-----*\n");
                 break;
             default:
                 printf("\n*-------> Invalid option <-------*\n");
                 break;
         }
-    } while(option != 3);
+    } while (option != 4);
 
     exit(0);
 }

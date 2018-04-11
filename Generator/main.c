@@ -10,6 +10,7 @@
 #include "MessageControl.h"
 
 void setAddress(Message *m);
+void setFilePath(Message *m);
 void setDataMessages(Message *m);
 
 int main() {
@@ -35,12 +36,13 @@ int main() {
         printf("*                                *\n");
         printf("* --> Type your option: ");
         scanf("%d", &(option));
-        while(getchar() != '\n');
+        while (getchar() != '\n');
         switch (option) {
             case 1:
                 setAddress(m);
                 break;
             case 2:
+                setFilePath(m);
                 startMessageControl(m, MANUAL);
                 break;
             case 3:
@@ -55,7 +57,7 @@ int main() {
                 printf("\n*-------> Invalid option <-------*\n");
                 break;
         }
-    } while(m->active);
+    } while (m->active);
 
     pthread_exit(NULL);
 }
@@ -68,18 +70,76 @@ void setAddress(Message *m) {
     while(getchar()!='\n');
 }
 
-void setDataMessages(Message *m) {
-    printf("* --> Type the creation range:\n* --> Lower: ");
-    scanf("%d",&( m->lowerCreate));
-    while(getchar()!='\n');
-    printf("* --> High: ");
-    scanf("%d",&(m->highCreate));
-    while(getchar()!='\n');
+void setFilePath(Message *m) {
+    int option = 0;
+    do {
+        printf("\n************Manual****************\n");
+        printf("*                                *\n");
+        printf("* 1) Set up file path            *\n");
+        printf("* 2) Start simulation            *\n");
+        printf("*                                *\n");
+        printf("**********************************\n");
+        printf("*                                *\n");
+        printf("* --> Type your option: ");
+        scanf("%d", &(option));
+        while (getchar() != '\n');
+        switch (option) {
+            case 1:
+                printf("* --> File path: ");
+                fgets(m->directory, 64, stdin);
+                break;
+            case 2:
+                break;
+            default:
+                printf("\n*-------> Invalid option <-------*\n");
+                break;
+        }
+    } while (option != 2);
+}
 
-    printf("* --> Type the burst range: \n* --> Lower: ");
-    scanf("%d",&(m->lowerBurst));
-    while(getchar()!='\n');
-    printf("* --> High: ");
-    scanf("%d",&(m->highBurst));
-    while(getchar()!='\n');
+void setDataMessages(Message *m) {
+
+    int option = 0;
+    do {
+        printf("\n***********Automatic**************\n");
+        printf("*                                *\n");
+        printf("* 1) Set up ranges               *\n");
+        printf("* 2) Start simulation            *\n");
+        printf("*                                *\n");
+        printf("**********************************\n");
+        printf("*                                *\n");
+        printf("* --> Type your option: ");
+        scanf("%d", &(option));
+        while (getchar() != '\n');
+        switch (option) {
+            case 1:
+                printf("* --> Type the process creation range:\n* --> Lower: ");
+                scanf("%d",&( m->lowerCreate));
+                while(getchar()!='\n');
+                printf("* --> High: ");
+                scanf("%d",&(m->highCreate));
+                while(getchar()!='\n');
+
+                printf("* --> Type the burst range: \n* --> Lower: ");
+                scanf("%d",&(m->lowerBurst));
+                while(getchar()!='\n');
+                printf("* --> High: ");
+                scanf("%d",&(m->highBurst));
+                while(getchar()!='\n');
+
+                printf("* --> Type the priority range: \n* --> Lower: ");
+                scanf("%d",&(m->lowerPriority));
+                while(getchar()!='\n');
+                printf("* --> High: ");
+                scanf("%d",&(m->highPriority));
+                while(getchar()!='\n');
+                break;
+            case 2:
+                break;
+            default:
+                printf("\n*-------> Invalid option <-------*\n");
+                break;
+        }
+    } while (option != 2);
+
 }
