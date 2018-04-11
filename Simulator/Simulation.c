@@ -87,8 +87,8 @@ void generate_summary(Simulation *simulation) {
     printf("*-------> Generating summary <-------\n");
 
     int executed_Processes = 0;
-    int TAT_Average = 0;
-    int WT_Average = 0;
+    float TAT_Average = 0;
+    float WT_Average = 0;
     Node *temp = simulation->processQueue->first;
     while(temp != NULL){
         if(isProcessEnded(temp->pcb)){
@@ -112,8 +112,8 @@ void generate_summary(Simulation *simulation) {
 
     printf("\n* 1) Number of processes executed: %d\n", executed_Processes);
     printf("* 2) Idle CPU Time:                  %d\n", simulation->idleTime);
-    printf("* 3) Average Turn Around Time:       %d\n", TAT_Average);
-    printf("* 4) Average Waiting Time:           %d\n", WT_Average);
+    printf("* 3) Average Turn Around Time:       %f\n", TAT_Average);
+    printf("* 4) Average Waiting Time:           %f\n", WT_Average);
 }
 
 void simulationMenu(Simulation *simulation) {
