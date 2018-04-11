@@ -22,6 +22,7 @@ Simulation *newSimulation(enum pAlgorithm algorithm) {
     s->quantum = 0;
     s->ended = 0;
     s->log = 0;
+    s->port=PORT;
     return s;
 }
 
@@ -110,9 +111,9 @@ void generate_summary(Simulation *simulation) {
     }
 
     printf("\n* 1) Number of processes executed: %d\n", executed_Processes);
-    printf("* 2) Idle CPU Time:        %d\n", simulation->idleTime);
-    printf("* 3) Average Turn Around Time:     %d\n", TAT_Average);
-    printf("* 4) Average Waiting Time:         %d\n", WT_Average);
+    printf("* 2) Idle CPU Time:                  %d\n", simulation->idleTime);
+    printf("* 3) Average Turn Around Time:       %d\n", TAT_Average);
+    printf("* 4) Average Waiting Time:           %d\n", WT_Average);
 }
 
 void simulationMenu(Simulation *simulation) {

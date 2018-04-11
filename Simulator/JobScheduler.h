@@ -8,7 +8,7 @@
 #include "Simulation.h"
 #include "Socket.h"
 
-void JobScheduling(Simulation *simulation, unsigned short port);
+void JobScheduling(Simulation *simulation);
 void activateListen(struct Socket *server_socket);
 
 #endif //SIMULATOR_JOBSCHEDULER_H

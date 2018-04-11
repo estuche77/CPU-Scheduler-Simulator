@@ -5,8 +5,6 @@
 #include "JobScheduler.h"
 #include "CpuScheduler.h"
 
-#define PORT 8080
-
 int main() {
 
     Simulation *simulation = newSimulation(FIFO);
@@ -16,9 +14,10 @@ int main() {
     do {
         printf("\n**************MENU****************\n");
         printf("*                                *\n");
-        printf("* 1) Select algorithm            *\n");
-        printf("* 2) Start simulation            *\n");
-        printf("* 3) Finish simulation           *\n");
+        printf("* 1) Config port                 *\n");
+        printf("* 2) Select algorithm            *\n");
+        printf("* 3) Start simulation            *\n");
+        printf("* 4) Finish simulation           *\n");
         printf("*                                *\n");
         printf("**********************************\n");
         printf("*                                *\n");
@@ -27,14 +26,19 @@ int main() {
         while(getchar() != '\n');
         switch (option) {
             case 1:
-                types_of_Algorithms(simulation);
+                printf("* --> Type new port: ");
+                scanf("%hu",&(simulation->port));
+                while(getchar()!='\n');
                 break;
             case 2:
-                JobScheduling(simulation, PORT);
+                types_of_Algorithms(simulation);
+                break;
+            case 3:
+                JobScheduling(simulation);
                 CpuScheduling(simulation);
                 simulationMenu(simulation);
                 break;
-            case 3:
+            case 4:
                 printf("\n*-----> closing simulation <-----*\n");
                 break;
             default:

@@ -64,9 +64,8 @@ void setAddress(Message *m) {
     char *address = malloc(15);
     printf("* --> IP: ");
     fgets(address, 16, stdin);
-    while(getchar()!='\n');
     printf("* --> Port: ");
-    scanf("%d",&(m->port));
+    scanf("%hu",&(m->port));
     while(getchar()!='\n');
 }
 

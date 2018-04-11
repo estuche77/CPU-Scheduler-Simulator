@@ -7,10 +7,10 @@
 #include <pthread.h>
 #include "JobScheduler.h"
 
-void JobScheduling(Simulation *simulation, unsigned short port) {
+void JobScheduling(Simulation *simulation) {
 
     // A server socketID is created
-    int sock = configureSocket(port);
+    int sock = configureSocket(simulation->port);
 
     if (sock <= 0) {
         printf("Error creating server socketID: %d\n", sock);

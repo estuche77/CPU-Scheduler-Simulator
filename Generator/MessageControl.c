@@ -74,7 +74,7 @@ void *manualControl(void *v) {
 
         // Calculates a random interval to continue
         interval = (unsigned int) randIntBetween(m->lowerCreate, m->highCreate);
-        printf("Waiting interval: %d\n", interval);
+        printf("\nWaiting interval: %d\n", interval);
 
         // And waits
         sleep(interval);

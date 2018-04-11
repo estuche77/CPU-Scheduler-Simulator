@@ -4,7 +4,7 @@
 
 #ifndef SIMULATOR_SIMULATION_H
 #define SIMULATOR_SIMULATION_H
-
+#define PORT 8080
 #include "PQueue.h"
 enum pAlgorithm {FIFO, SJF, HPF, RR};
 
@@ -15,6 +15,7 @@ typedef struct Simulation {
     int clockTimes;
     int idleTime;
     unsigned int burstTime;
+    unsigned short port;
     int quantum;
     int ended;
 } Simulation;
