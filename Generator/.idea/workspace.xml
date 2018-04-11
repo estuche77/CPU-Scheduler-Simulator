@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8f2a4dd3-467b-454c-b0b8-4fbc73711220" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../Simulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulator/PBC.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulator/PBC.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -207,7 +206,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126859000" />
+    <option name="totallyTimeSpent" value="126867000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -227,7 +226,7 @@
       <window_info anchor="bottom" id="CMake" order="11" sideWeight="0.4996277" weight="0.3295082" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003723" side_tool="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3057229" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3057229" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3295082" />
       <window_info id="Favorites" order="2" side_tool="true" />

@@ -11,10 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1f36c66-7f33-46c4-9c50-8f71af17fa81" name="Default" comment="Algorithm searches, process execution, summary of CPU scheduler">
-      <change beforePath="$PROJECT_DIR$/../Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Generator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PBC.c" beforeDir="false" afterPath="$PROJECT_DIR$/PBC.c" afterDir="false" />
-    </list>
+    <list default="true" id="f1f36c66-7f33-46c4-9c50-8f71af17fa81" name="Default" comment="Algorithm searches, process execution, summary of CPU scheduler" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,8 +50,8 @@
       <file leaf-file-name="PBC.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PBC.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+            <state relative-caret-position="312">
+              <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -257,7 +254,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170150000" />
+    <option name="totallyTimeSpent" value="170550000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -270,13 +267,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1365" y="-4" width="1368" height="773" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988764" visible="true" weight="0.15812592" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32680723" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.3298193" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5014641" side_tool="true" weight="0.32379517" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49853587" visible="true" weight="0.30120483" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49853587" weight="0.30120483" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.55041325" />
       <window_info id="Structure" order="1" sideWeight="0.5011236" side_tool="true" weight="0.24963397" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.19008264" />
@@ -687,8 +685,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PBC.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="312">
+          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
         </state>
       </provider>
     </entry>
