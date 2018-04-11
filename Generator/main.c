@@ -63,8 +63,10 @@ int main() {
 }
 
 void setAddress(Message *m) {
+    char* ip=(char*)malloc(16);
     printf("* --> IP: ");
-    fgets(m->host, 16, stdin);
+    fgets(ip, 16, stdin);
+    m->host=ip;
     printf("* --> Port: ");
     scanf("%hu",&(m->port));
     while(getchar()!='\n');
